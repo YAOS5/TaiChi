@@ -23,11 +23,19 @@
                         <rect key="frame" x="20" y="11" width="128" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFc-92-Upb">
+                        <rect key="frame" x="169" y="64" width="224" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="videoImageView" destination="epd-2m-CbR" id="tAl-gN-XK2"/>
+                <outlet property="videoLabel" destination="PFc-92-Upb" id="l8K-ww-Re0"/>
             </connections>
             <point key="canvasLocation" x="217.59999999999999" y="83.208395802098963"/>
         </tableViewCell>

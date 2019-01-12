@@ -13,7 +13,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg"]
-
+    let titleArray : [String] = ["rehab video 1", "rehab video 2", "rehab video 3"]
     
     
     override func viewDidLoad() {
@@ -29,6 +29,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
         cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
+        cell.videoLabel.text = titleArray[indexPath.row]
         return cell
     }
     
