@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AVKit
 
 class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg"]
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -35,7 +36,19 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        playVideo(videoName: "\(indexPath.row)")
+    }
+    
+    func playVideo(videoName: String) {
+        if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true) {
+                video.play()
+            }
+        }
     }
     
 

@@ -12,7 +12,7 @@ import AVKit
 class WarmUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg"]
 
     
     
@@ -35,6 +35,22 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     // Adjusting the height of the rows, might change it later
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        playVideo(videoName: "\(indexPath.row)")
+    }
+    
+    func playVideo(videoName: String) {
+        if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true) {
+                video.play()
+            }
+        }
     }
     
 }
