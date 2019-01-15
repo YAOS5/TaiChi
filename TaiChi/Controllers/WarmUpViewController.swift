@@ -40,7 +40,9 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playVideo(videoName: "\(indexPath.row)")
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
     
     func playVideo(videoName: String) {
         if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
@@ -48,10 +50,22 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video
             
+            //prot code
+            let interval = CMTime(seconds: 1, preferredTimescale: 1)
+            video.addPeriodicTimeObserver(forInterval: interval, queue: nil) { (time) in
+                let seconds = CMTimeGetSeconds(time)
+                print(Int(seconds))
+            }
+        
             present(videoPlayer, animated: true) {
                 video.play()
             }
+            
         }
     }
+    
+//    func videoDidPlay(video: AVPlayer) {
+//        print(video.currentTime().value)
+//    }
     
 }

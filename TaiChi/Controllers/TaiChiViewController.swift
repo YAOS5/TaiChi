@@ -39,6 +39,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playVideo(videoName: "\(indexPath.row)")
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func playVideo(videoName: String) {
@@ -47,9 +48,17 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video
             
+            //prot code
+            let interval = CMTime(seconds: 1, preferredTimescale: 1)
+            video.addPeriodicTimeObserver(forInterval: interval, queue: nil) { (time) in
+                let seconds = CMTimeGetSeconds(time)
+                print(Int(seconds))
+            }
+            
             present(videoPlayer, animated: true) {
                 video.play()
             }
+            
         }
     }
     

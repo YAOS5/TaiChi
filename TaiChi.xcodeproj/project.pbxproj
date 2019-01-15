@@ -15,6 +15,7 @@
 		49696DFF21E982BD00B23804 /* 0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFD21E982AF00B23804 /* 0.MP4 */; };
 		49696E0021E982BD00B23804 /* 1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFE21E982AF00B23804 /* 1.MP4 */; };
 		49696E0121E982BD00B23804 /* 2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFC21E982AF00B23804 /* 2.MP4 */; };
+		49696E0821E993F300B23804 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0721E993F300B23804 /* Record.swift */; };
 		49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F33AEF21E86F4300F93F34 /* AppDelegate.swift */; };
 		49F33AF221E86F4300F93F34 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F33AF121E86F4300F93F34 /* LoginViewController.swift */; };
 		49F33AF521E86F4300F93F34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F33AF321E86F4300F93F34 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		49696DFC21E982AF00B23804 /* 2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.MP4; sourceTree = "<group>"; };
 		49696DFD21E982AF00B23804 /* 0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0.MP4; sourceTree = "<group>"; };
 		49696DFE21E982AF00B23804 /* 1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.MP4; sourceTree = "<group>"; };
+		49696E0721E993F300B23804 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		49F33AEC21E86F4300F93F34 /* TaiChi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaiChi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F33AEF21E86F4300F93F34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F33AF121E86F4300F93F34 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		49696E0621E993C800B23804 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49696E0721E993F300B23804 /* Record.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		49F33AE321E86F4300F93F34 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 			children = (
 				49F33AEF21E86F4300F93F34 /* AppDelegate.swift */,
 				49F33AF621E86F4500F93F34 /* Assets.xcassets */,
+				49696E0621E993C800B23804 /* Models */,
 				49F33B0121E86FC400F93F34 /* Views */,
 				49F33B0421E874C500F93F34 /* Controllers */,
 				49544E4721E87A1700092CE7 /* Cells */,
@@ -195,6 +206,7 @@
 				49F33B0321E874AF00F93F34 /* SelectionViewController.swift in Sources */,
 				49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */,
 				49544E5321E87CDE00092CE7 /* TaiChiViewController.swift in Sources */,
+				49696E0821E993F300B23804 /* Record.swift in Sources */,
 				49544E5121E87CD400092CE7 /* WarmUpViewController.swift in Sources */,
 				49544E5821E880EA00092CE7 /* VideoTableViewCell.swift in Sources */,
 			);
