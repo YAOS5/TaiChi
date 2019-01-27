@@ -51,11 +51,11 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        playVideo(videoName: "\(indexPath.row)")
+        playVideo(videoName: "\(indexPath.row)", indexPath: indexPath)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func playVideo(videoName: String) {
+    func playVideo(videoName: String, indexPath: IndexPath) {
         if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
             let url = URL(fileURLWithPath: path)
             let video = AVPlayer(url: url)
@@ -67,7 +67,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("fullLength", fullLength)
             
             /* Calling this function to track the time played and enable loop play */
-            manageTime(video: video, fullLength: fullLength)
+            manageTime(video: video, fullLength: fullLength, indexPath: indexPath)
             
             present(videoPlayer, animated: true) {
                 video.play()
@@ -86,27 +86,44 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func manageTime(video: AVPlayer, fullLength: Double){
+    func manageTime(video: AVPlayer, fullLength: Double, indexPath: IndexPath){
         let interval = CMTime(seconds: 1, preferredTimescale: 1)
         var seconds : Double = 0.0
         video.addPeriodicTimeObserver(forInterval: interval, queue: nil) { (time) in
             seconds = Double(CMTimeGetSeconds(time))
-            print(seconds)
+//            print(seconds)
             
             /* If it reaches the end of the video, then seek to the beginning */
-            if self.isLoopPlayEnabled {
-                if (fullLength - seconds) < 0.1 {
-                    print("It is now at the end of the video")
-                    let beginning = CMTime(seconds: 0, preferredTimescale: 1)
-                    video.seek(to: beginning)
-                    seconds = 0.00
-                    
-                    /* If I don't pause, sometimes loop play doesn't work */
-                    video.pause()
-                    video.play()
-                }
+            self.tryLoopPlay(video: video, fullLength: fullLength, seconds: seconds)
+            self.updateProgress(fullLength: fullLength, seconds: seconds, indexPath: indexPath)
+        }
+    }
+    
+    
+    func tryLoopPlay(video: AVPlayer, fullLength: Double, seconds: Double) {
+        if self.isLoopPlayEnabled {
+            if (fullLength - seconds) < 0.1 {
+                print("It is now at the end of the video")
+                let beginning = CMTime(seconds: 0, preferredTimescale: 1)
+                video.seek(to: beginning)
+                /* If I don't pause, sometimes loop play doesn't work */
+                video.pause()
+                video.play()
             }
         }
     }
+    
+    func updateProgress(fullLength: Double, seconds: Double, indexPath: IndexPath) {
+        var progress = Int((seconds / fullLength) * 100)
+        print(progress)
+        // If most of the video has been played, then we just turn it to 100
+        if progress > 95 {
+            progress = 100
+        }
+        
+        let cell = self.tableView.cellForRow(at: indexPath) as! VideoTableViewCell
+            cell.progressLabel.text = "\(progress)%"
+        
 
+    }
 }

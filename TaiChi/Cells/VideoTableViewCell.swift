@@ -12,6 +12,7 @@ class VideoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoImageView: UIImageView!
     @IBOutlet weak var videoLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     
     
     override func awakeFromNib() {

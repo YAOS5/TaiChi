@@ -15,7 +15,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoTableViewCell" rowHeight="169" id="KGk-i7-Jjw" customClass="VideoTableViewCell" customModule="TaiChi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="420" height="149"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="VideoTableViewCell" customModule="TaiChi" customModuleProvider="target">
                 <rect key="frame" x="0.0" y="0.0" width="420" height="148.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -30,10 +30,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-Ag-QEZ">
+                        <rect key="frame" x="317" y="64" width="59" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="progressLabel" destination="bsb-Ag-QEZ" id="rSm-Og-Shu"/>
                 <outlet property="videoImageView" destination="epd-2m-CbR" id="tAl-gN-XK2"/>
                 <outlet property="videoLabel" destination="PFc-92-Upb" id="l8K-ww-Re0"/>
             </connections>
