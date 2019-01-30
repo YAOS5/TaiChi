@@ -42,6 +42,10 @@ extension WarmUpViewController {
             
             /* Working with progress percentage */
             self.manageProgress(indexPath: indexPath, fullLength: fullLength, seconds: seconds)
+            
+            /* Feed the database the end time of the video*/
+            let endTime = self.getTime()
+            self.updateVideoDB(category: "WarmUp", videoName: "\(indexPath.row)", startTime: nil, endTime: endTime)
         }
     }
     

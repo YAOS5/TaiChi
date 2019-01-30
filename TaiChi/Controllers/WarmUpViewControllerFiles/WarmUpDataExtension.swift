@@ -9,14 +9,16 @@
 import Foundation
 
 extension WarmUpViewController {
-    func getTime() -> Array<Int> {
+    
+    func getTime() -> Time {
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        print(hour, minutes, seconds)
-        return [hour, minutes, seconds]
+        
+        let time = Time(hour: hour, minutes: minutes, seconds: seconds)
+        return time
     }
     
     func updateVideoDB(category: String, videoName: String, startTime: Time?, endTime: Time?) {
@@ -44,12 +46,25 @@ extension WarmUpViewController {
     
     func updateTimeDB(videoObject: Video, startTime: Time?, endTime: Time?) {
         print("Updating timeDB")
-        
+        if shouldStartNewEntry(startTime: startTime) {
+            // Then it means that the previous start-end pair is already complete
+            let playTime = PlayTime(startTime: startTime, endTime: endTime)
+            videoObject.playTimeList.append(playTime)
+            
+        }
+        else {
+            // Then it means the previous pair is not complete yet
+            videoObject.playTimeList.last!.endTime = endTime!
+        }
         
         
     }
     
-    func shouldStartNewEntry() {
-        
+    
+    func shouldStartNewEntry(startTime: Time?) -> Bool {
+        if startTime == nil {
+            return false
+        }
+        return true
     }
 }
