@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2586F744168CC34A09699DFC /* Pods_TaiChi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC87BCC3F52A414A03086550 /* Pods_TaiChi.framework */; };
+		4912370321FFE6E800001D97 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912370221FFE6E700001D97 /* Time.swift */; };
+		4912372522014BCC00001D97 /* WarmUpPlayVideoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372422014BCC00001D97 /* WarmUpPlayVideoExtension.swift */; };
+		4912372722014CF800001D97 /* WarmUpDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372622014CF700001D97 /* WarmUpDataExtension.swift */; };
+		4912372922014D4400001D97 /* TaiChiPlayVideoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372822014D4400001D97 /* TaiChiPlayVideoExtension.swift */; };
+		4912372B22014DA100001D97 /* TaiChiDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372A22014DA100001D97 /* TaiChiDataExtension.swift */; };
 		49544E5121E87CD400092CE7 /* WarmUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49544E5021E87CD400092CE7 /* WarmUpViewController.swift */; };
 		49544E5321E87CDE00092CE7 /* TaiChiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49544E5221E87CDE00092CE7 /* TaiChiViewController.swift */; };
 		49544E5821E880EA00092CE7 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49544E5621E880EA00092CE7 /* VideoTableViewCell.swift */; };
@@ -16,7 +21,7 @@
 		49696DFF21E982BD00B23804 /* 0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFD21E982AF00B23804 /* 0.MP4 */; };
 		49696E0021E982BD00B23804 /* 1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFE21E982AF00B23804 /* 1.MP4 */; };
 		49696E0121E982BD00B23804 /* 2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFC21E982AF00B23804 /* 2.MP4 */; };
-		49696E0D21EF592500B23804 /* Play Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0C21EF592500B23804 /* Play Time.swift */; };
+		49696E0D21EF592500B23804 /* PlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0C21EF592500B23804 /* PlayTime.swift */; };
 		49696E0F21EF599600B23804 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0E21EF599600B23804 /* Video.swift */; };
 		49696E1121EF59C400B23804 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E1021EF59C400B23804 /* Date.swift */; };
 		49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB505E21FD8B0F008EB865 /* Progress.swift */; };
@@ -30,6 +35,11 @@
 
 /* Begin PBXFileReference section */
 		20803EFE5661BE718369B105 /* Pods-TaiChi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaiChi.release.xcconfig"; path = "Pods/Target Support Files/Pods-TaiChi/Pods-TaiChi.release.xcconfig"; sourceTree = "<group>"; };
+		4912370221FFE6E700001D97 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		4912372422014BCC00001D97 /* WarmUpPlayVideoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpPlayVideoExtension.swift; sourceTree = "<group>"; };
+		4912372622014CF700001D97 /* WarmUpDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpDataExtension.swift; sourceTree = "<group>"; };
+		4912372822014D4400001D97 /* TaiChiPlayVideoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiPlayVideoExtension.swift; sourceTree = "<group>"; };
+		4912372A22014DA100001D97 /* TaiChiDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiDataExtension.swift; sourceTree = "<group>"; };
 		49544E5021E87CD400092CE7 /* WarmUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpViewController.swift; sourceTree = "<group>"; };
 		49544E5221E87CDE00092CE7 /* TaiChiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiViewController.swift; sourceTree = "<group>"; };
 		49544E5621E880EA00092CE7 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
@@ -38,7 +48,7 @@
 		49696DFC21E982AF00B23804 /* 2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.MP4; sourceTree = "<group>"; };
 		49696DFD21E982AF00B23804 /* 0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0.MP4; sourceTree = "<group>"; };
 		49696DFE21E982AF00B23804 /* 1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.MP4; sourceTree = "<group>"; };
-		49696E0C21EF592500B23804 /* Play Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Play Time.swift"; sourceTree = "<group>"; };
+		49696E0C21EF592500B23804 /* PlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTime.swift; sourceTree = "<group>"; };
 		49696E0E21EF599600B23804 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		49696E1021EF59C400B23804 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		49EB505E21FD8B0F008EB865 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -66,6 +76,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4912372C22014DB000001D97 /* WarmUpViewControllerFiles */ = {
+			isa = PBXGroup;
+			children = (
+				49544E5021E87CD400092CE7 /* WarmUpViewController.swift */,
+				4912372422014BCC00001D97 /* WarmUpPlayVideoExtension.swift */,
+				4912372622014CF700001D97 /* WarmUpDataExtension.swift */,
+			);
+			path = WarmUpViewControllerFiles;
+			sourceTree = "<group>";
+		};
+		4912372D22014DC800001D97 /* TaiChiViewControllerFiles */ = {
+			isa = PBXGroup;
+			children = (
+				49544E5221E87CDE00092CE7 /* TaiChiViewController.swift */,
+				4912372822014D4400001D97 /* TaiChiPlayVideoExtension.swift */,
+				4912372A22014DA100001D97 /* TaiChiDataExtension.swift */,
+			);
+			path = TaiChiViewControllerFiles;
+			sourceTree = "<group>";
+		};
 		49544E4721E87A1700092CE7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,7 +110,8 @@
 			children = (
 				49696E1021EF59C400B23804 /* Date.swift */,
 				49696E0E21EF599600B23804 /* Video.swift */,
-				49696E0C21EF592500B23804 /* Play Time.swift */,
+				49696E0C21EF592500B23804 /* PlayTime.swift */,
+				4912370221FFE6E700001D97 /* Time.swift */,
 				49EB505E21FD8B0F008EB865 /* Progress.swift */,
 			);
 			path = Models;
@@ -144,8 +175,8 @@
 			children = (
 				49F33AF121E86F4300F93F34 /* LoginViewController.swift */,
 				49F33B0221E874AF00F93F34 /* SelectionViewController.swift */,
-				49544E5021E87CD400092CE7 /* WarmUpViewController.swift */,
-				49544E5221E87CDE00092CE7 /* TaiChiViewController.swift */,
+				4912372C22014DB000001D97 /* WarmUpViewControllerFiles */,
+				4912372D22014DC800001D97 /* TaiChiViewControllerFiles */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,9 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				49F33AF221E86F4300F93F34 /* LoginViewController.swift in Sources */,
+				4912372922014D4400001D97 /* TaiChiPlayVideoExtension.swift in Sources */,
+				4912372B22014DA100001D97 /* TaiChiDataExtension.swift in Sources */,
 				49F33B0321E874AF00F93F34 /* SelectionViewController.swift in Sources */,
+				4912370321FFE6E800001D97 /* Time.swift in Sources */,
 				49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */,
-				49696E0D21EF592500B23804 /* Play Time.swift in Sources */,
+				4912372722014CF800001D97 /* WarmUpDataExtension.swift in Sources */,
+				49696E0D21EF592500B23804 /* PlayTime.swift in Sources */,
+				4912372522014BCC00001D97 /* WarmUpPlayVideoExtension.swift in Sources */,
 				49544E5321E87CDE00092CE7 /* TaiChiViewController.swift in Sources */,
 				49696E0F21EF599600B23804 /* Video.swift in Sources */,
 				49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */,

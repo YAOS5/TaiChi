@@ -7,8 +7,14 @@
 //
 
 import Foundation
-struct Video {
-    let Category : String
-    let name : String
-    var playTimeArray : [PlayTime]  // In case exercises are done multiple times a day
+import RealmSwift
+
+
+class Video : Object {
+    @objc dynamic var Category : String?
+    @objc dynamic var videoName : String?
+    var playTimeList : List<Time>?
+    
+    
+//    PlayTime // In case exercises are done multiple times a day
 }

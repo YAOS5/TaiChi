@@ -1,65 +1,15 @@
 //
-//  TaiChiViewController.swift
+//  WarmUpPlayVideoExtension.swift
 //  TaiChi
 //
-//  Created by Peteski Shi on 11/1/19.
+//  Created by Peteski Shi on 30/1/19.
 //  Copyright © 2019 Petech. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import AVKit
-import RealmSwift
 
-class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let realm = try! Realm()
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    
-    var isLoopPlayEnabled = false
-    @IBAction func loopSwitch(_ sender: UISwitch) {
-        if (sender.isOn) {
-            isLoopPlayEnabled = true
-        }
-        else {
-            isLoopPlayEnabled = false
-        }
-    }
-    
-    
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg"]
-    let titleArray : [String] = ["rehab video 1", "rehab video 2", "rehab video 3"]
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let videoNibCell = UINib(nibName: "VideoTableViewCell", bundle: nil)
-        tableView.register(videoNibCell, forCellReuseIdentifier: "VideoTableViewCell")
-    }
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-        cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
-        cell.videoLabel.text = titleArray[indexPath.row]
-        cell.progressLabel.text = readProgress(videoName: cell.videoLabel.text!)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        playVideo(videoName: "\(indexPath.row)", indexPath: indexPath)
-        self.tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
+extension TaiChiViewController {
     func playVideo(videoName: String, indexPath: IndexPath) {
         if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
             let url = URL(fileURLWithPath: path)
@@ -67,14 +17,14 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video
             
-            // Trying to implement looping
             let fullLength = getVideoLength(url: url)
             print("fullLength", fullLength)
             
             present(videoPlayer, animated: true) {
                 video.play()
             }
-            /* Calling this function to track the time played and enable loop play */
+            
+            /* Track the time played and enable loop play */
             manageTime(video: video, fullLength: fullLength, indexPath: indexPath)
         }
     }
@@ -198,3 +148,4 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return "\(progress)%"
     }
 }
+

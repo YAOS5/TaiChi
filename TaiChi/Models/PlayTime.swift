@@ -7,6 +7,10 @@
 //
 
 import Foundation
-struct PlayTime {
-    var realtime : String
+import RealmSwift
+
+
+class PlayTime : Object {
+    @objc dynamic var startTime : Time?
+    @objc dynamic var endTime : Time?
 }
