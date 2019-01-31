@@ -21,17 +21,24 @@ extension TaiChiViewController {
         return time
     }
     
-    func updateVideoDB(category: String, videoName: String, startTime: Time?, endTime: Time?) {
+    func updateVideoDB(dayObject: Day, category: String, videoName: String, startTime: Time?, endTime: Time?) {
         let videoObject = realm.objects(Video.self).filter("videoName == '\(videoName)'").first
         if videoObject == nil {
             print("Video object doesn't exist")
             let newVideoObject = addNewVideo(category: category, videoName: videoName)
             updateTimeDB(videoObject: newVideoObject, startTime: startTime, endTime: endTime)
+            addVideoToDay(dayObject: dayObject, videoObject: newVideoObject)
             
         }
         else {
             print("Video object exists")
             updateTimeDB(videoObject: videoObject!, startTime: startTime, endTime: endTime)
+        }
+    }
+    
+    func addVideoToDay(dayObject: Day, videoObject: Video) {
+        try! realm.write {
+            dayObject.videosWatched.append(videoObject)
         }
     }
     
@@ -47,6 +54,7 @@ extension TaiChiViewController {
         }
         return videoObject
     }
+    
     
     func updateTimeDB(videoObject: Video, startTime: Time?, endTime: Time?) {
         print("Updating timeDB")

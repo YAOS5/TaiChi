@@ -33,6 +33,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let videoNibCell = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.register(videoNibCell, forCellReuseIdentifier: "VideoTableViewCell")
     }
@@ -59,7 +60,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
         
         /* feed the database the start time of the video */
         let startTime = getTime()
-        updateVideoDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
+        updateDayDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
