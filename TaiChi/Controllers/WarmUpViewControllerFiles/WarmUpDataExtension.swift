@@ -41,6 +41,10 @@ extension WarmUpViewController {
         let videoObject = Video()
         videoObject.Category = category
         videoObject.videoName = videoName
+        
+        try! realm.write {
+            realm.add(videoObject)
+        }
         return videoObject
     }
     
@@ -49,12 +53,16 @@ extension WarmUpViewController {
         if shouldStartNewEntry(startTime: startTime) {
             // Then it means that the previous start-end pair is already complete
             let playTime = PlayTime(startTime: startTime, endTime: endTime)
-            videoObject.playTimeList.append(playTime)
-            
+            try! realm.write {
+                videoObject.playTimeList.append(playTime)
+            }
         }
         else {
             // Then it means the previous pair is not complete yet
-            videoObject.playTimeList.last!.endTime = endTime!
+            try! realm.write {
+                videoObject.playTimeList.last!.endTime = endTime!
+            }
+            
         }
         
         

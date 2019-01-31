@@ -56,10 +56,10 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playVideo(videoName: "\(indexPath.row)", indexPath: indexPath)
-        let startTime = getTime()
         
         /* feed the database the start time of the video */
-        updateVideoDB(category: "WarmUp", videoName: "\(indexPath.row)", startTime: startTime, endTime: nil)
+        let startTime = getTime()
+        updateVideoDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

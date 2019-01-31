@@ -57,6 +57,10 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         playVideo(videoName: "\(indexPath.row)", indexPath: indexPath)
+        
+        /* feed the database the start time of the video */
+        let startTime = getTime()
+        updateVideoDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

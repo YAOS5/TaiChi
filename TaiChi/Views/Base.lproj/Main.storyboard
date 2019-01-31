@@ -155,7 +155,7 @@
                                     <outlet property="delegate" destination="Hdm-GX-ver" id="xhr-iO-c3S"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="循环播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTv-bb-ysL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="循环播放" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTv-bb-ysL">
                                 <rect key="frame" x="16" y="78" width="122" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -170,12 +170,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FTv-bb-ysL" firstAttribute="leading" secondItem="LuF-kK-75Z" secondAttribute="leading" constant="16" id="3k0-TH-XJV"/>
                             <constraint firstItem="7OZ-GB-sbA" firstAttribute="trailing" secondItem="LuF-kK-75Z" secondAttribute="trailing" id="79u-r9-Ip0"/>
                             <constraint firstItem="7OZ-GB-sbA" firstAttribute="top" secondItem="FTv-bb-ysL" secondAttribute="bottom" constant="8" id="FpQ-5E-jMJ"/>
                             <constraint firstItem="7OZ-GB-sbA" firstAttribute="leading" secondItem="LuF-kK-75Z" secondAttribute="leading" id="Ism-nb-1a9"/>
                             <constraint firstItem="kFO-Q2-kt3" firstAttribute="top" secondItem="LuF-kK-75Z" secondAttribute="top" constant="17" id="KJ6-Cc-k8V"/>
                             <constraint firstItem="LuF-kK-75Z" firstAttribute="trailing" secondItem="kFO-Q2-kt3" secondAttribute="trailing" constant="180" id="Qje-bA-CEI"/>
                             <constraint firstItem="FTv-bb-ysL" firstAttribute="top" secondItem="LuF-kK-75Z" secondAttribute="top" constant="14" id="WBH-A0-yUx"/>
+                            <constraint firstItem="kFO-Q2-kt3" firstAttribute="leading" secondItem="FTv-bb-ysL" secondAttribute="trailing" constant="8" id="eRy-1e-N5Q"/>
                             <constraint firstItem="7OZ-GB-sbA" firstAttribute="bottom" secondItem="LuF-kK-75Z" secondAttribute="bottom" id="sq1-VC-67B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LuF-kK-75Z"/>

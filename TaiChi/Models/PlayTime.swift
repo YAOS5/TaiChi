@@ -11,8 +11,8 @@ import RealmSwift
 
 
 class PlayTime : Object {
-    @objc dynamic var startTime = Time()
-    @objc dynamic var endTime = Time()
+    @objc dynamic var startTime : Time? = nil
+    @objc dynamic var endTime : Time? = nil
     
     convenience init(startTime: Time?, endTime: Time?) {
         self.init()

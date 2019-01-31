@@ -45,7 +45,7 @@ extension WarmUpViewController {
             
             /* Feed the database the end time of the video*/
             let endTime = self.getTime()
-            self.updateVideoDB(category: "WarmUp", videoName: "\(indexPath.row)", startTime: nil, endTime: endTime)
+            self.updateVideoDB(category: "WarmUp", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
         }
     }
     
