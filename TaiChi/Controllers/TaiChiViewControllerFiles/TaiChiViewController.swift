@@ -60,7 +60,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         /* feed the database the start time of the video */
         let startTime = getTime()
-        updateDayDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
+        updateDayDB(category: "TaiChi", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

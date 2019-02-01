@@ -7,21 +7,26 @@
 //
 
 import Foundation
+import RealmSwift
 
 extension WarmUpViewController {
     
-    func getTime() -> Time {
+    func getTime() -> List<Int> {
         let date = Date()
+        let time = List<Int>()
+        
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         
-        let time = Time(hour: hour, minutes: minutes, seconds: seconds)
+        time.append(hour)
+        time.append(minutes)
+        time.append(seconds)
         return time
     }
     
-    func updateVideoDB(dayObject: Day, category: String, videoName: String, startTime: Time?, endTime: Time?) {
+    func updateVideoDB(dayObject: Day, category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         let videoObject = realm.objects(Video.self).filter("videoName == '\(videoName)'").first
         if videoObject == nil {
             print("Video object doesn't exist")
@@ -56,7 +61,7 @@ extension WarmUpViewController {
     }
     
     
-    func updateTimeDB(videoObject: Video, startTime: Time?, endTime: Time?) {
+    func updateTimeDB(videoObject: Video, startTime: List<Int>?, endTime: List<Int>?) {
         print("Updating timeDB")
         if shouldStartNewEntry(startTime: startTime) {
             // Then it means that the previous start-end pair is already complete
@@ -68,7 +73,14 @@ extension WarmUpViewController {
         else {
             // Then it means the previous pair is not complete yet
             try! realm.write {
-                videoObject.playTimeList.last!.endTime = endTime!
+                if videoObject.playTimeList.last!.endTime.count == 0 {
+                    videoObject.playTimeList.last!.endTime.append(objectsIn: endTime!)
+                }
+                else {
+                    videoObject.playTimeList.last!.endTime[0] = endTime![0]
+                    videoObject.playTimeList.last!.endTime[1] = endTime![1]
+                    videoObject.playTimeList.last!.endTime[2] = endTime![2]
+                }
             }
             
         }
@@ -77,8 +89,9 @@ extension WarmUpViewController {
     }
     
     
-    func shouldStartNewEntry(startTime: Time?) -> Bool {
+    func shouldStartNewEntry(startTime: List<Int>?) -> Bool {
         if startTime == nil {
+            print("Should not start new entry")
             return false
         }
         return true

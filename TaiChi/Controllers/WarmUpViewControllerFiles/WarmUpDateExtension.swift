@@ -8,29 +8,24 @@
 
 import Foundation
 import AFDateHelper
+import RealmSwift
 
 extension WarmUpViewController {
     
-//    func getLastDateOnRecord() -> Date? {
-//        let dayObject = realm.objects(Day.self).last
-//        print("dayObject?.date", dayObject?.date)
-//        if dayObject?.date == nil {
-//            return nil
-//        }
-//        return Date(fromString: (dayObject?.date)!, format: .isoDate)
-//    }
-//
-//
-//    func isDifferentDay(currentDate: Date, dateOnRecord: Date?) -> Bool {
-//        if dateOnRecord == nil {
-//            return false
-//        }
-//        print("isDifferentDay result", !currentDate.compare(.isSameDay(as: dateOnRecord!)))
-//        return !currentDate.compare(.isSameDay(as: dateOnRecord!))
-//    }
+    //    func getLastDateOnRecord() -> Date? {
+    //        let dayObject = realm.objects(Day.self).last
+    //        print("dayObject?.date", dayObject?.date)
+    //        if dayObject?.date == nil {
+    //            return nil
+    //        }
+    //        return Date(fromString: (dayObject?.date)!, format: .isoDate)
+    //    }
+    //
+    //
     
     
-    func updateDayDB(category: String, videoName: String, startTime: Time?, endTime: Time?) {
+    
+    func updateDayDB(category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         
         let currentDate = Date()
         let dayObjects = realm.objects(Day.self)
@@ -71,8 +66,8 @@ extension WarmUpViewController {
         for i in 0 ..< videos.count {
             let playTimeList = videos[i].playTimeList
             for j in 0 ..< playTimeList.count {
-                let startTime = playTimeList[j].startTime!
-                let endTime = playTimeList[j].endTime!
+                let startTime = playTimeList[j].startTime
+                let endTime = playTimeList[j].endTime
                 totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
             }
         }
@@ -80,29 +75,32 @@ extension WarmUpViewController {
     }
     
     
-    func calculatePlayDuration(startTime: Time, endTime: Time) -> Int {
+    func calculatePlayDuration(startTime: List<Int>, endTime: List<Int>) -> Int {
         var totalSeconds = 0
         // Making sure no one watched a video at midnight
-        assert(startTime.hour <= endTime.hour)
+        let hour = 0
+        let minutes = 1
+        let seconds = 2
+        assert(startTime[hour] <= endTime[hour])
         
         // Hour calculation
-        let hourDiff = endTime.hour - startTime.hour
+        let hourDiff = endTime[hour] - startTime[hour]
         let minutesDiff : Int
         let secondsDiff : Int
         
         // Minutes calculation
-        if new(startInt: startTime.hour, endInt: endTime.hour) {
-            minutesDiff = endTime.minutes
+        if new(startInt: startTime[hour], endInt: endTime[hour]) {
+            minutesDiff = endTime[minutes]
         }
         else {
-            minutesDiff = endTime.minutes - startTime.minutes
+            minutesDiff = endTime[minutes] - startTime[minutes]
         }
         // Seconds calculation
-        if new(startInt: startTime.minutes, endInt: endTime.minutes) {
-            secondsDiff = endTime.seconds
+        if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
+            secondsDiff = endTime[seconds]
         }
         else {
-            secondsDiff = endTime.seconds - startTime.seconds
+            secondsDiff = endTime[seconds] - startTime[seconds]
         }
         
         totalSeconds = hourToSeconds(hour: hourDiff) + minutesToSeconds(minutes: minutesDiff) + secondsDiff

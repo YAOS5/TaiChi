@@ -11,13 +11,13 @@ import RealmSwift
 
 
 class PlayTime : Object {
-    @objc dynamic var startTime : Time? = nil
-    @objc dynamic var endTime : Time? = nil
+    var startTime = List<Int>()
+    var endTime = List<Int>()
     
-    convenience init(startTime: Time?, endTime: Time?) {
+    
+    convenience init(startTime: List<Int>?, endTime: List<Int>?) {
         self.init()
-        self.startTime = startTime ?? Time()
-        self.endTime = endTime ?? Time()
+        self.startTime = startTime ?? List<Int>()
+        self.endTime = endTime ?? List<Int>()
     }
-    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import AFDateHelper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
+    func isDifferentDay(dateOnRecord: Day?) -> Bool {
+        let currentDate = Date()
+        if dateOnRecord == nil {
+            return false
+        }
+        
+        let lastDate = Date(fromString: (dateOnRecord?.date)!, format: .isoDate)!
+        print("isDifferentDay result", !currentDate.compare(.isSameDay(as: lastDate)))
+        return !currentDate.compare(.isSameDay(as: lastDate))
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // refresh the progress DB after each day
+        let realm = try! Realm()
+        let lastDateOnRecord = realm.objects(Day.self).last
+        if isDifferentDay(dateOnRecord: lastDateOnRecord) && (realm.objects(Progress.self).count != 0) {
+            try! realm.write {
+                realm.delete(realm.objects(Progress.self))
+            }
+        }
+        
         return true
     }
 
