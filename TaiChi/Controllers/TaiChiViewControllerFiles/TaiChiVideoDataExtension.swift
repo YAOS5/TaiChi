@@ -27,19 +27,30 @@ extension TaiChiViewController {
     }
     
     func updateVideoDB(dayObject: Day, category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
-        let videoObject = realm.objects(Video.self).filter("videoName == '\(videoName)'").first
-        if videoObject == nil {
+        let videoObjects = dayObject.videosWatched
+        if checkExistance(videoName: videoName, videoObjects: videoObjects) == -1 {
             print("Video object doesn't exist")
-            let newVideoObject = addNewVideo(category: category, videoName: videoName)
-            updateTimeDB(videoObject: newVideoObject, startTime: startTime, endTime: endTime)
+            let newVideoObject = createVideoObject(category: category, videoName: videoName)
             addVideoToDay(dayObject: dayObject, videoObject: newVideoObject)
-            
+            updateTimeDB(videoObject: newVideoObject, startTime: startTime, endTime: endTime)
         }
         else {
             print("Video object exists")
-            updateTimeDB(videoObject: videoObject!, startTime: startTime, endTime: endTime)
+            let index = checkExistance(videoName: videoName, videoObjects: videoObjects)
+            updateTimeDB(videoObject: videoObjects[index], startTime: startTime, endTime: endTime)
         }
     }
+    
+    
+    func checkExistance(videoName: String, videoObjects: List<Video>) -> Int {
+        for i in 0 ..< videoObjects.count {
+            if videoName == videoObjects[i].videoName! {
+                return i
+            }
+        }
+        return -1
+    }
+    
     
     func addVideoToDay(dayObject: Day, videoObject: Video) {
         try! realm.write {
@@ -48,15 +59,12 @@ extension TaiChiViewController {
     }
     
     
-    func addNewVideo(category: String, videoName: String) -> Video {
+    func createVideoObject(category: String, videoName: String) -> Video {
         print("Adding new video object")
         let videoObject = Video()
         videoObject.Category = category
         videoObject.videoName = videoName
         
-        try! realm.write {
-            realm.add(videoObject)
-        }
         return videoObject
     }
     

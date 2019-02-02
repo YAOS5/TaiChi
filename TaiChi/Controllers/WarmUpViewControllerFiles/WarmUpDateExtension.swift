@@ -31,18 +31,15 @@ extension WarmUpViewController {
         let dayObjects = realm.objects(Day.self)
         let dayObject = dayObjects.last
         if (dayObject == nil) || (dayObject?.date != currentDate.toString(format: .isoDate)) {
-            // Then we need to create a new object
-            print("New Day")
+            // Creating and adding the new day object to the database
             let newDayObject = createNewDay(currentDate: currentDate)
-            // Adding the new day object to the database
             try! realm.write {
                 realm.add(newDayObject)
             }
-            // Calculate the total watch time for yesterday
-            if dayObjects.count > 1 {
-                updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
-            }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
+            
+            // Check everyday besides today, to see if their totalTime is calculated
+            updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
         }
         else {
             // Then we can use the existing dateObject
@@ -60,32 +57,41 @@ extension WarmUpViewController {
     
     
     func updateTotalWatchTimeInMinutes(dayObjects: Results<Day>) {
-        
-        var totalTimeInSeconds = 0
-        for k in 0 ..< dayObjects.count - 1 {
-            let dayObject = dayObjects[k]
-            if dayObject.totalTimeInMinutes == 0 {
-                // Then it means that the totaltime calculation is never done
-                let videos = dayObject.videosWatched
-                for i in 0 ..< videos.count {
-                    let playTimeList = videos[i].playTimeList
-                    for j in 0 ..< playTimeList.count {
-                        let startTime = playTimeList[j].startTime
-                        let endTime = playTimeList[j].endTime
-                        // To make it more secure
-                        if (startTime.count == 3) && (endTime.count == 3) {
-                            totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
-                        }
-                        else {
-                            break
-                        }
+        if dayObjects.count <= 1 {
+            return
+        }
+        else {
+            for i in 0 ..< dayObjects.count - 1 {
+                let dayObject = dayObjects[i]
+                if dayObject.totalTimeInMinutes == 0 {
+                    let totalMinutes = calculateTotalWatchTimeInMinutes(dayObject: dayObject)
+                    try! realm.write {
+                        dayObject.totalTimeInMinutes = totalMinutes
                     }
-                }
-                try! realm.write {
-                    dayObject.totalTimeInMinutes = Int(totalTimeInSeconds / 60)
                 }
             }
         }
+    }
+    
+    
+    func calculateTotalWatchTimeInMinutes(dayObject: Day) -> Int {
+        var totalTimeInSeconds = 0
+        let videos = dayObject.videosWatched
+        for i in 0 ..< videos.count {
+            let playTimeList = videos[i].playTimeList
+            for j in 0 ..< playTimeList.count {
+                let startTime = playTimeList[j].startTime
+                let endTime = playTimeList[j].endTime
+                // To make it more secure
+                if (startTime.count == 3) && (endTime.count == 3) {
+                    totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
+                }
+                else {
+                    break
+                }
+            }
+        }
+        return Int(totalTimeInSeconds / 60)
     }
     
     
@@ -140,3 +146,4 @@ extension WarmUpViewController {
     }
     
 }
+
