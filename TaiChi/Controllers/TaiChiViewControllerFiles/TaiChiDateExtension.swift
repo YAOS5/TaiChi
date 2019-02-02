@@ -63,19 +63,30 @@ extension TaiChiViewController {
     func updateTotalWatchTimeInMinutes(dayObject: Day) {
         let videos = dayObject.videosWatched
         var totalTimeInSeconds = 0
+        print("videos.count", videos.count)
         for i in 0 ..< videos.count {
             let playTimeList = videos[i].playTimeList
             for j in 0 ..< playTimeList.count {
                 let startTime = playTimeList[j].startTime
                 let endTime = playTimeList[j].endTime
-                totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
+                // To make it more secure
+                if (startTime.count == 3) && (endTime.count == 3) {
+                    totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
+                }
+                else {
+                    break
+                }
+                
             }
         }
-        dayObject.totalTimeInMinutes = Int(totalTimeInSeconds / 60)
+        try! realm.write {
+            dayObject.totalTimeInMinutes = Int(totalTimeInSeconds / 60)
+        }
     }
     
     
     func calculatePlayDuration(startTime: List<Int>, endTime: List<Int>) -> Int {
+        
         var totalSeconds = 0
         // Making sure no one watched a video at midnight
         let hour = 0
@@ -84,20 +95,22 @@ extension TaiChiViewController {
         assert(startTime[hour] <= endTime[hour])
         
         // Hour calculation
-        let hourDiff = endTime[hour] - startTime[hour]
-        let minutesDiff : Int
-        let secondsDiff : Int
+        var hourDiff = endTime[hour] - startTime[hour]
+        var minutesDiff : Int
+        var secondsDiff : Int
         
         // Minutes calculation
         if new(startInt: startTime[hour], endInt: endTime[hour]) {
-            minutesDiff = endTime[minutes]
+            hourDiff -= 1
+            minutesDiff = endTime[minutes] + 60 - startTime[minutes]
         }
         else {
             minutesDiff = endTime[minutes] - startTime[minutes]
         }
         // Seconds calculation
         if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
-            secondsDiff = endTime[seconds]
+            minutesDiff -= 1
+            secondsDiff = endTime[seconds] + 60 - startTime[seconds]
         }
         else {
             secondsDiff = endTime[seconds] - startTime[seconds]
@@ -119,7 +132,7 @@ extension TaiChiViewController {
     
     
     func new(startInt: Int, endInt: Int) -> Bool {
-        return startInt > endInt
+        return startInt < endInt
     }
     
 }
