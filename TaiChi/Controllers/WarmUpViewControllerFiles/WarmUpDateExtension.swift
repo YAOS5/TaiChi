@@ -40,8 +40,7 @@ extension WarmUpViewController {
             }
             // Calculate the total watch time for yesterday
             if dayObjects.count > 1 {
-                let yesterdayObject = dayObjects[dayObjects.count - 2]
-                updateTotalWatchTimeInMinutes(dayObject: yesterdayObject)
+                updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
         }
@@ -60,27 +59,32 @@ extension WarmUpViewController {
     }
     
     
-    func updateTotalWatchTimeInMinutes(dayObject: Day) {
-        let videos = dayObject.videosWatched
+    func updateTotalWatchTimeInMinutes(dayObjects: Results<Day>) {
+        
         var totalTimeInSeconds = 0
-        print("videos.count", videos.count)
-        for i in 0 ..< videos.count {
-            let playTimeList = videos[i].playTimeList
-            for j in 0 ..< playTimeList.count {
-                let startTime = playTimeList[j].startTime
-                let endTime = playTimeList[j].endTime
-                // To make it more secure
-                if (startTime.count == 3) && (endTime.count == 3) {
-                    totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
+        for k in 0 ..< dayObjects.count - 1 {
+            let dayObject = dayObjects[k]
+            if dayObject.totalTimeInMinutes == 0 {
+                // Then it means that the totaltime calculation is never done
+                let videos = dayObject.videosWatched
+                for i in 0 ..< videos.count {
+                    let playTimeList = videos[i].playTimeList
+                    for j in 0 ..< playTimeList.count {
+                        let startTime = playTimeList[j].startTime
+                        let endTime = playTimeList[j].endTime
+                        // To make it more secure
+                        if (startTime.count == 3) && (endTime.count == 3) {
+                            totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
+                        }
+                        else {
+                            break
+                        }
+                    }
                 }
-                else {
-                    break
+                try! realm.write {
+                    dayObject.totalTimeInMinutes = Int(totalTimeInSeconds / 60)
                 }
-                
             }
-        }
-        try! realm.write {
-            dayObject.totalTimeInMinutes = Int(totalTimeInSeconds / 60)
         }
     }
     
