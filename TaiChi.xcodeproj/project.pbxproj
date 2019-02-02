@@ -23,6 +23,8 @@
 		49696E0D21EF592500B23804 /* PlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0C21EF592500B23804 /* PlayTime.swift */; };
 		49696E0F21EF599600B23804 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0E21EF599600B23804 /* Video.swift */; };
 		49696E1121EF59C400B23804 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E1021EF59C400B23804 /* Day.swift */; };
+		499DB8C22205F217008AB45B /* orange background.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C12205F216008AB45B /* orange background.png */; };
+		499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C52205FADE008AB45B /* Ying Yang.png */; };
 		49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB505E21FD8B0F008EB865 /* Progress.swift */; };
 		49F0D9D8220285A900B4BF0F /* WarmUpDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D9D7220285A900B4BF0F /* WarmUpDateExtension.swift */; };
 		49F0D9DA220285B600B4BF0F /* TaiChiDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D9D9220285B600B4BF0F /* TaiChiDateExtension.swift */; };
@@ -51,6 +53,8 @@
 		49696E0C21EF592500B23804 /* PlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTime.swift; sourceTree = "<group>"; };
 		49696E0E21EF599600B23804 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		49696E1021EF59C400B23804 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		499DB8C12205F216008AB45B /* orange background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange background.png"; sourceTree = "<group>"; };
+		499DB8C52205FADE008AB45B /* Ying Yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ying Yang.png"; sourceTree = "<group>"; };
 		49EB505E21FD8B0F008EB865 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		49F0D9D7220285A900B4BF0F /* WarmUpDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpDateExtension.swift; sourceTree = "<group>"; };
 		49F0D9D9220285B600B4BF0F /* TaiChiDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiDateExtension.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				49696DFE21E982AF00B23804 /* 1.MP4 */,
 				49696DFC21E982AF00B23804 /* 2.MP4 */,
 				49544E5D21E9796B00092CE7 /* square.jpg */,
+				499DB8C12205F216008AB45B /* orange background.png */,
+				499DB8C52205FADE008AB45B /* Ying Yang.png */,
 				49F33AEE21E86F4300F93F34 /* TaiChi */,
 				49F33AED21E86F4300F93F34 /* Products */,
 				E3CA386553F40AACE1EF79B5 /* Pods */,
@@ -261,6 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */,
+				499DB8C22205F217008AB45B /* orange background.png in Resources */,
 				49696DFF21E982BD00B23804 /* 0.MP4 in Resources */,
 				49696E0021E982BD00B23804 /* 1.MP4 in Resources */,
 				49696E0121E982BD00B23804 /* 2.MP4 in Resources */,

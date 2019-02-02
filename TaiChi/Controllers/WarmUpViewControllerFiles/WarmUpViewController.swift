@@ -52,7 +52,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     // Adjusting the height of the rows, might change it later
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 150
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

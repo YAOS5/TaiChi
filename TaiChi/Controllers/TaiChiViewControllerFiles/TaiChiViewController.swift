@@ -52,7 +52,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 150
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
