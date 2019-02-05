@@ -23,6 +23,8 @@
 		49696E0D21EF592500B23804 /* PlayTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0C21EF592500B23804 /* PlayTime.swift */; };
 		49696E0F21EF599600B23804 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E0E21EF599600B23804 /* Video.swift */; };
 		49696E1121EF59C400B23804 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E1021EF59C400B23804 /* Day.swift */; };
+		49709B3822096875003DD139 /* WarmUpJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3722096875003DD139 /* WarmUpJSONExtension.swift */; };
+		49709B3A22096889003DD139 /* TaiChiJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3922096889003DD139 /* TaiChiJSONExtension.swift */; };
 		499DB8C22205F217008AB45B /* orange background.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C12205F216008AB45B /* orange background.png */; };
 		499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C52205FADE008AB45B /* Ying Yang.png */; };
 		49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB505E21FD8B0F008EB865 /* Progress.swift */; };
@@ -53,6 +55,8 @@
 		49696E0C21EF592500B23804 /* PlayTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTime.swift; sourceTree = "<group>"; };
 		49696E0E21EF599600B23804 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		49696E1021EF59C400B23804 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		49709B3722096875003DD139 /* WarmUpJSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpJSONExtension.swift; sourceTree = "<group>"; };
+		49709B3922096889003DD139 /* TaiChiJSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiJSONExtension.swift; sourceTree = "<group>"; };
 		499DB8C12205F216008AB45B /* orange background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange background.png"; sourceTree = "<group>"; };
 		499DB8C52205FADE008AB45B /* Ying Yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ying Yang.png"; sourceTree = "<group>"; };
 		49EB505E21FD8B0F008EB865 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				4912372422014BCC00001D97 /* WarmUpPlayVideoExtension.swift */,
 				4912372622014CF700001D97 /* WarmUpVideoDataExtension.swift */,
 				49F0D9D7220285A900B4BF0F /* WarmUpDateExtension.swift */,
+				49709B3722096875003DD139 /* WarmUpJSONExtension.swift */,
 			);
 			path = WarmUpViewControllerFiles;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				4912372822014D4400001D97 /* TaiChiPlayVideoExtension.swift */,
 				4912372A22014DA100001D97 /* TaiChiVideoDataExtension.swift */,
 				49F0D9D9220285B600B4BF0F /* TaiChiDateExtension.swift */,
+				49709B3922096889003DD139 /* TaiChiJSONExtension.swift */,
 			);
 			path = TaiChiViewControllerFiles;
 			sourceTree = "<group>";
@@ -293,12 +299,14 @@
 				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -330,12 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49709B3822096875003DD139 /* WarmUpJSONExtension.swift in Sources */,
 				49F33AF221E86F4300F93F34 /* LoginViewController.swift in Sources */,
 				4912372922014D4400001D97 /* TaiChiPlayVideoExtension.swift in Sources */,
 				4912372B22014DA100001D97 /* TaiChiVideoDataExtension.swift in Sources */,
 				49F33B0321E874AF00F93F34 /* SelectionViewController.swift in Sources */,
 				49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */,
 				4912372722014CF800001D97 /* WarmUpVideoDataExtension.swift in Sources */,
+				49709B3A22096889003DD139 /* TaiChiJSONExtension.swift in Sources */,
 				49696E0D21EF592500B23804 /* PlayTime.swift in Sources */,
 				4912372522014BCC00001D97 /* WarmUpPlayVideoExtension.swift in Sources */,
 				49F0D9DA220285B600B4BF0F /* TaiChiDateExtension.swift in Sources */,
