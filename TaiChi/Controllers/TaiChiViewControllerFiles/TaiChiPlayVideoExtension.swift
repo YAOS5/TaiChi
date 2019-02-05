@@ -63,7 +63,6 @@ extension TaiChiViewController {
     func tryLoopPlay(video: AVPlayer, fullLength: Double, seconds: Double) {
         if self.isLoopPlayEnabled {
             if (fullLength - seconds) < 0.1 {
-                print("It is now at the end of the video")
                 let beginning = CMTime(seconds: 0, preferredTimescale: 1)
                 video.seek(to: beginning)
                 /* If I don't pause, sometimes loop play doesn't work */
@@ -101,18 +100,15 @@ extension TaiChiViewController {
         let progressObject = realm.objects(Progress.self).filter("videoName == '\(videoName)'").first
         if progressObject == nil {
             // If it doesn't, add it to the DB
-            print("It doesn't exist")
             addNewProgress(videoName: videoName, progress: newProgress)
             return newProgress
         }
         else {
             // If it does, check if it requires updating
-            print("It does exist")
             let oldProgress = progressObject!.percentage
             if compareProgress(oldProgress: oldProgress, newProgress: newProgress) {
                 try! realm.write {
                     progressObject?.percentage = newProgress
-                    print("The new progress is \(newProgress)")
                 }
                 return newProgress
             }
@@ -123,16 +119,13 @@ extension TaiChiViewController {
     
     func compareProgress(oldProgress: Int, newProgress: Int) -> Bool{
         if newProgress > oldProgress {
-            print("The new progress is higher")
             return true
         }
-        print("The new progress is lower")
         return false
     }
     
     
     func addNewProgress(videoName : String, progress: Int) {
-        print("adding new progress")
         let progressObject = Progress()
         progressObject.videoName = videoName
         progressObject.percentage = progress

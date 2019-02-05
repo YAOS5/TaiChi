@@ -43,7 +43,6 @@ extension TaiChiViewController {
         }
         else {
             // Then we can use the existing dateObject
-            print("same day")
             updateVideoDB(dayObject: dayObject!, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
         }
     }
@@ -132,7 +131,7 @@ extension TaiChiViewController {
     
     
     func hourToSeconds(hour: Int) -> Int {
-        return hour * 60
+        return hour * 60 * 60
     }
     
     

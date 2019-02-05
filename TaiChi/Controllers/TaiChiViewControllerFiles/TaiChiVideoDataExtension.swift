@@ -29,13 +29,11 @@ extension TaiChiViewController {
     func updateVideoDB(dayObject: Day, category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         let videoObjects = dayObject.videosWatched
         if checkExistance(videoName: videoName, videoObjects: videoObjects) == -1 {
-            print("Video object doesn't exist")
             let newVideoObject = createVideoObject(category: category, videoName: videoName)
             addVideoToDay(dayObject: dayObject, videoObject: newVideoObject)
             updateTimeDB(videoObject: newVideoObject, startTime: startTime, endTime: endTime)
         }
         else {
-            print("Video object exists")
             let index = checkExistance(videoName: videoName, videoObjects: videoObjects)
             updateTimeDB(videoObject: videoObjects[index], startTime: startTime, endTime: endTime)
         }
@@ -60,7 +58,6 @@ extension TaiChiViewController {
     
     
     func createVideoObject(category: String, videoName: String) -> Video {
-        print("Adding new video object")
         let videoObject = Video()
         videoObject.Category = category
         videoObject.videoName = videoName
@@ -70,7 +67,6 @@ extension TaiChiViewController {
     
     
     func updateTimeDB(videoObject: Video, startTime: List<Int>?, endTime: List<Int>?) {
-        print("Updating timeDB")
         if shouldStartNewEntry(startTime: startTime) {
             // Then it means that the previous start-end pair is already complete
             let playTime = PlayTime(startTime: startTime, endTime: endTime)

@@ -43,7 +43,6 @@ extension WarmUpViewController {
         }
         else {
             // Then we can use the existing dateObject
-            print("same day")
             updateVideoDB(dayObject: dayObject!, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
         }
     }
@@ -82,6 +81,8 @@ extension WarmUpViewController {
             for j in 0 ..< playTimeList.count {
                 let startTime = playTimeList[j].startTime
                 let endTime = playTimeList[j].endTime
+//                print(startTime)
+//                print(endTime)
                 // To make it more secure
                 if (startTime.count == 3) && (endTime.count == 3) {
                     totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
@@ -109,6 +110,7 @@ extension WarmUpViewController {
         var minutesDiff : Int
         var secondsDiff : Int
         
+        print(hourDiff)
         // Minutes calculation
         if new(startInt: startTime[hour], endInt: endTime[hour]) {
             hourDiff -= 1
@@ -117,6 +119,7 @@ extension WarmUpViewController {
         else {
             minutesDiff = endTime[minutes] - startTime[minutes]
         }
+//        print(minutesDiff)
         // Seconds calculation
         if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
             minutesDiff -= 1
@@ -125,14 +128,15 @@ extension WarmUpViewController {
         else {
             secondsDiff = endTime[seconds] - startTime[seconds]
         }
-        
+//        print(secondsDiff)
         totalSeconds = hourToSeconds(hour: hourDiff) + minutesToSeconds(minutes: minutesDiff) + secondsDiff
+//        print(totalSeconds)
         return totalSeconds
     }
     
     
     func hourToSeconds(hour: Int) -> Int {
-        return hour * 60
+        return hour * 60 * 60
     }
     
     
