@@ -11,7 +11,7 @@ import RealmSwift
 
 
 class Video : Object {
-    @objc dynamic var Category : String?
+    @objc dynamic var category : String?
     @objc dynamic var videoName : String?
     var playTimeList = List<PlayTime>()  // In case exercises are done multiple times a day
 }

@@ -59,7 +59,7 @@ extension WarmUpViewController {
     
     func createVideoObject(category: String, videoName: String) -> Video {
         let videoObject = Video()
-        videoObject.Category = category
+        videoObject.category = category
         videoObject.videoName = videoName
         
         return videoObject
