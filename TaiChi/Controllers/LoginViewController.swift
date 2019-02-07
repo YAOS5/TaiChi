@@ -8,10 +8,16 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var loginButton: UIButton!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginButton.getShadow(button: loginButton)
+        self.hideKeyboard()
+        self.userName.delegate = self
+        self.password.delegate = self
     }
     
     
@@ -23,11 +29,33 @@ class LoginViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    @IBAction func loginButton(_ sender: UIButton) {
+    
+    /* Configuring the login text fields */
+    @IBOutlet weak var userName: UITextField! {
+        didSet {
+            userName.tintColor = UIColor.lightGray
+            userName.setIcon(UIImage(imageLiteralResourceName: "UserAvatar"))
+        }
+    }
+    @IBOutlet weak var password: UITextField! {
+        didSet {
+            password.tintColor = UIColor.lightGray
+            password.setIcon(UIImage(imageLiteralResourceName: "Lock"))
+        }
     }
     
     
     
+    @IBAction func loginButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "toSelection", sender: self)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userName.resignFirstResponder()
+        password.resignFirstResponder()
+        return true
+    }
 
 }
 

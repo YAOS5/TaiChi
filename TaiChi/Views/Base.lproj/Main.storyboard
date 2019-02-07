@@ -18,68 +18,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-3D-NTy">
-                                <rect key="frame" x="15" y="184" width="120" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le7-n9-atR">
-                                <rect key="frame" x="15" y="305" width="120" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lcN-0l-pYj">
-                                <rect key="frame" x="15" y="235" width="230" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="osG-o9-DDU">
-                                <rect key="frame" x="15" y="356" width="230" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNp-Q3-7pZ">
-                                <rect key="frame" x="137" y="486" width="101" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="登陆">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="haD-s9-0K0"/>
-                                    <segue destination="3x1-Et-ead" kind="show" id="KZR-1n-piL"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange background.png" translatesAutoresizingMaskIntoConstraints="NO" id="MRf-aD-8FF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-xI-gBq">
+                                <rect key="frame" x="37" y="64" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-EQ-Iff">
+                                        <rect key="frame" x="25" y="181" width="250" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="登陆">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EyL-cv-qJN"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-Du-v7n" userLabel="passward">
+                                        <rect key="frame" x="25" y="103" width="250" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-KQ-6EP" userLabel="Username">
+                                        <rect key="frame" x="25" y="44" width="250" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ying Yang.png" translatesAutoresizingMaskIntoConstraints="NO" id="cRY-5C-M69">
+                                <rect key="frame" x="112" y="415" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SC3-3D-NTy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="01R-yg-GGD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNp-Q3-7pZ" secondAttribute="trailing" constant="137" id="4hk-nP-O1Z"/>
-                            <constraint firstItem="lcN-0l-pYj" firstAttribute="top" secondItem="SC3-3D-NTy" secondAttribute="bottom" constant="15" id="969-qi-LXl"/>
-                            <constraint firstItem="le7-n9-atR" firstAttribute="top" secondItem="lcN-0l-pYj" secondAttribute="bottom" constant="40" id="CPU-mh-mpm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lcN-0l-pYj" secondAttribute="trailing" constant="130" id="GqY-1a-2cp"/>
-                            <constraint firstItem="CNp-Q3-7pZ" firstAttribute="top" secondItem="osG-o9-DDU" secondAttribute="bottom" constant="100" id="ICf-s2-u4C"/>
-                            <constraint firstItem="lcN-0l-pYj" firstAttribute="top" secondItem="SC3-3D-NTy" secondAttribute="bottom" constant="15" id="Ix7-Mq-1bc"/>
-                            <constraint firstItem="CNp-Q3-7pZ" firstAttribute="top" secondItem="osG-o9-DDU" secondAttribute="bottom" constant="100" id="Pb2-6b-1gK"/>
-                            <constraint firstItem="le7-n9-atR" firstAttribute="top" secondItem="lcN-0l-pYj" secondAttribute="bottom" constant="40" id="Rvw-fV-ct1"/>
-                            <constraint firstItem="osG-o9-DDU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="YOS-Ey-lyR"/>
-                            <constraint firstItem="SC3-3D-NTy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fLX-xx-g0Q"/>
-                            <constraint firstItem="CNp-Q3-7pZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="hWb-G8-qWn"/>
-                            <constraint firstItem="lcN-0l-pYj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="i7D-Dg-9Gr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="le7-n9-atR" secondAttribute="trailing" constant="240" id="k66-Sg-Rjd"/>
-                            <constraint firstItem="osG-o9-DDU" firstAttribute="top" secondItem="le7-n9-atR" secondAttribute="bottom" constant="15" id="lQc-HA-PmD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="osG-o9-DDU" secondAttribute="trailing" constant="130" id="paw-X1-5Cv"/>
-                            <constraint firstItem="osG-o9-DDU" firstAttribute="top" secondItem="le7-n9-atR" secondAttribute="bottom" constant="15" id="qWN-t3-QLy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CNp-Q3-7pZ" secondAttribute="bottom" constant="109" id="qep-dP-e3L"/>
-                            <constraint firstItem="le7-n9-atR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="tEd-y6-s35"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SC3-3D-NTy" secondAttribute="trailing" constant="240" id="uyl-Ce-Sfk"/>
+                            <constraint firstItem="MRf-aD-8FF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KID-bc-Rid"/>
+                            <constraint firstItem="MRf-aD-8FF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="W3K-Fv-wtV"/>
+                            <constraint firstAttribute="bottom" secondItem="MRf-aD-8FF" secondAttribute="bottom" id="f2y-JB-TCX"/>
+                            <constraint firstItem="MRf-aD-8FF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kTp-tb-r4b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="nt8-Jq-nzR"/>
+                    <connections>
+                        <outlet property="loginButton" destination="2lg-EQ-Iff" id="4PV-w3-p6g"/>
+                        <outlet property="password" destination="hWE-Du-v7n" id="ada-tY-9Bt"/>
+                        <outlet property="userName" destination="VVg-KQ-6EP" id="ex3-vm-hJo"/>
+                        <segue destination="3x1-Et-ead" kind="show" identifier="toSelection" id="n3y-ov-V8H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,36 +223,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vS7-N1-ZWO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
-                                <state key="normal" image="Warm Up"/>
-                                <connections>
-                                    <action selector="warmUpButton:" destination="3x1-Et-ead" eventType="touchUpInside" id="OQP-fd-Qn2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0p-SQ-vyh">
-                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
-                                <state key="normal" image="Tai Chi"/>
-                                <connections>
-                                    <action selector="taiChiButton:" destination="3x1-Et-ead" eventType="touchUpInside" id="DG5-Ns-i4T"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange background.png" translatesAutoresizingMaskIntoConstraints="NO" id="ohF-aW-Dl7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmN-vH-uRX">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="333.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuX-II-N4z">
+                                        <rect key="frame" x="37" y="67" width="300" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="打太极">
+                                            <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="taiChiButton:" destination="3x1-Et-ead" eventType="touchUpInside" id="uMc-OW-F6F"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yu9-iJ-dmh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-lk-rbg">
+                                        <rect key="frame" x="37" y="66" width="300" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="做热身">
+                                            <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="warmUpButton:" destination="3x1-Et-ead" eventType="touchUpInside" id="G1l-pa-3rc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="vS7-N1-ZWO" firstAttribute="top" secondItem="kGo-Od-hyq" secondAttribute="top" id="OkY-ka-dp1"/>
-                            <constraint firstItem="vS7-N1-ZWO" firstAttribute="trailing" secondItem="kGo-Od-hyq" secondAttribute="trailing" id="QXR-PZ-ctw"/>
-                            <constraint firstAttribute="bottom" secondItem="c0p-SQ-vyh" secondAttribute="bottom" id="TMH-7b-iWH"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="trailing" secondItem="kGo-Od-hyq" secondAttribute="trailing" id="V4Q-gI-drn"/>
-                            <constraint firstItem="vS7-N1-ZWO" firstAttribute="leading" secondItem="kGo-Od-hyq" secondAttribute="leading" id="cE5-iZ-jbn"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="width" secondItem="vS7-N1-ZWO" secondAttribute="width" id="dEg-JD-YAk"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="top" secondItem="vS7-N1-ZWO" secondAttribute="bottom" id="gZp-ej-bQs"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="leading" secondItem="kGo-Od-hyq" secondAttribute="leading" id="peO-dn-IOa"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="top" secondItem="vS7-N1-ZWO" secondAttribute="bottom" id="uRt-nQ-VUi"/>
-                            <constraint firstItem="c0p-SQ-vyh" firstAttribute="height" secondItem="vS7-N1-ZWO" secondAttribute="height" id="xIM-Tg-ks4"/>
+                            <constraint firstItem="Yu9-iJ-dmh" firstAttribute="trailing" secondItem="kGo-Od-hyq" secondAttribute="trailing" id="0q4-v2-AKP"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="width" secondItem="Yu9-iJ-dmh" secondAttribute="width" id="2pI-Lh-QHV"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="top" secondItem="Yu9-iJ-dmh" secondAttribute="bottom" id="3PA-7a-LZR"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="trailing" secondItem="kGo-Od-hyq" secondAttribute="trailing" id="C5y-V0-suC"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="leading" secondItem="kGo-Od-hyq" secondAttribute="leading" id="ODG-bN-gss"/>
+                            <constraint firstItem="ohF-aW-Dl7" firstAttribute="top" secondItem="QSn-9Q-Htp" secondAttribute="top" id="WoL-ze-aBq"/>
+                            <constraint firstItem="Yu9-iJ-dmh" firstAttribute="leading" secondItem="kGo-Od-hyq" secondAttribute="leading" id="dJi-zB-TaH"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="height" secondItem="Yu9-iJ-dmh" secondAttribute="height" id="eAg-mH-aLF"/>
+                            <constraint firstItem="Yu9-iJ-dmh" firstAttribute="top" secondItem="QSn-9Q-Htp" secondAttribute="top" id="fJL-Bu-zK2"/>
+                            <constraint firstAttribute="bottom" secondItem="ohF-aW-Dl7" secondAttribute="bottom" id="h8A-Ky-Qd3"/>
+                            <constraint firstItem="zmN-vH-uRX" firstAttribute="top" secondItem="Yu9-iJ-dmh" secondAttribute="bottom" id="hnN-Bf-hYv"/>
+                            <constraint firstItem="ohF-aW-Dl7" firstAttribute="leading" secondItem="kGo-Od-hyq" secondAttribute="leading" id="ig6-xW-xwV"/>
+                            <constraint firstItem="ohF-aW-Dl7" firstAttribute="trailing" secondItem="kGo-Od-hyq" secondAttribute="trailing" id="kEt-Fe-rpl"/>
+                            <constraint firstAttribute="bottom" secondItem="zmN-vH-uRX" secondAttribute="bottom" id="p47-fN-GGB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kGo-Od-hyq"/>
                     </view>
                     <connections>
+                        <outlet property="taiChiButton" destination="PuX-II-N4z" id="e6f-Uj-c5J"/>
+                        <outlet property="warmUpButton" destination="XMi-lk-rbg" id="qf4-2Y-vM9"/>
                         <segue destination="9aw-IK-ISL" kind="show" identifier="Warm Up" id="9zI-Q6-82K"/>
                         <segue destination="Hdm-GX-ver" kind="show" identifier="Tai Chi" id="9yV-aM-TEb"/>
                     </connections>
@@ -256,7 +320,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Tai Chi" width="692" height="443"/>
-        <image name="Warm Up" width="131.27999877929688" height="79.199996948242188"/>
+        <image name="Ying Yang.png" width="300" height="300"/>
+        <image name="orange background.png" width="1000" height="1000"/>
     </resources>
 </document>

@@ -17,6 +17,9 @@
 		49544E5821E880EA00092CE7 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49544E5621E880EA00092CE7 /* VideoTableViewCell.swift */; };
 		49544E5921E880EA00092CE7 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49544E5721E880EA00092CE7 /* VideoTableViewCell.xib */; };
 		49544E5E21E9796B00092CE7 /* square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49544E5D21E9796B00092CE7 /* square.jpg */; };
+		495F2E62220BE9A700D56049 /* roundCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F2E61220BE9A700D56049 /* roundCornerExtension.swift */; };
+		495F2E64220C728300D56049 /* buttonShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F2E63220C728300D56049 /* buttonShadowExtension.swift */; };
+		495F2E66220C7AED00D56049 /* retractKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495F2E65220C7AED00D56049 /* retractKeyboardExtension.swift */; };
 		49696DFF21E982BD00B23804 /* 0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFD21E982AF00B23804 /* 0.MP4 */; };
 		49696E0021E982BD00B23804 /* 1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFE21E982AF00B23804 /* 1.MP4 */; };
 		49696E0121E982BD00B23804 /* 2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 49696DFC21E982AF00B23804 /* 2.MP4 */; };
@@ -25,6 +28,7 @@
 		49696E1121EF59C400B23804 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49696E1021EF59C400B23804 /* Day.swift */; };
 		49709B3822096875003DD139 /* WarmUpJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3722096875003DD139 /* WarmUpJSONExtension.swift */; };
 		49709B3A22096889003DD139 /* TaiChiJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3922096889003DD139 /* TaiChiJSONExtension.swift */; };
+		49709B3E220B2218003DD139 /* textFieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3D220B2218003DD139 /* textFieldIcon.swift */; };
 		499DB8C22205F217008AB45B /* orange background.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C12205F216008AB45B /* orange background.png */; };
 		499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C52205FADE008AB45B /* Ying Yang.png */; };
 		49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB505E21FD8B0F008EB865 /* Progress.swift */; };
@@ -49,6 +53,9 @@
 		49544E5621E880EA00092CE7 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
 		49544E5721E880EA00092CE7 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		49544E5D21E9796B00092CE7 /* square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = square.jpg; sourceTree = "<group>"; };
+		495F2E61220BE9A700D56049 /* roundCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundCornerExtension.swift; sourceTree = "<group>"; };
+		495F2E63220C728300D56049 /* buttonShadowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonShadowExtension.swift; sourceTree = "<group>"; };
+		495F2E65220C7AED00D56049 /* retractKeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = retractKeyboardExtension.swift; sourceTree = "<group>"; };
 		49696DFC21E982AF00B23804 /* 2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 2.MP4; sourceTree = "<group>"; };
 		49696DFD21E982AF00B23804 /* 0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 0.MP4; sourceTree = "<group>"; };
 		49696DFE21E982AF00B23804 /* 1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.MP4; sourceTree = "<group>"; };
@@ -57,6 +64,7 @@
 		49696E1021EF59C400B23804 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		49709B3722096875003DD139 /* WarmUpJSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpJSONExtension.swift; sourceTree = "<group>"; };
 		49709B3922096889003DD139 /* TaiChiJSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiJSONExtension.swift; sourceTree = "<group>"; };
+		49709B3D220B2218003DD139 /* textFieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldIcon.swift; sourceTree = "<group>"; };
 		499DB8C12205F216008AB45B /* orange background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange background.png"; sourceTree = "<group>"; };
 		499DB8C52205FADE008AB45B /* Ying Yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ying Yang.png"; sourceTree = "<group>"; };
 		49EB505E21FD8B0F008EB865 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -133,6 +141,10 @@
 		49696E0B21EE1E3700B23804 /* supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				49709B3D220B2218003DD139 /* textFieldIcon.swift */,
+				495F2E61220BE9A700D56049 /* roundCornerExtension.swift */,
+				495F2E63220C728300D56049 /* buttonShadowExtension.swift */,
+				495F2E65220C7AED00D56049 /* retractKeyboardExtension.swift */,
 			);
 			path = "supporting files";
 			sourceTree = "<group>";
@@ -348,14 +360,18 @@
 				49709B3A22096889003DD139 /* TaiChiJSONExtension.swift in Sources */,
 				49696E0D21EF592500B23804 /* PlayTime.swift in Sources */,
 				4912372522014BCC00001D97 /* WarmUpPlayVideoExtension.swift in Sources */,
+				495F2E66220C7AED00D56049 /* retractKeyboardExtension.swift in Sources */,
 				49F0D9DA220285B600B4BF0F /* TaiChiDateExtension.swift in Sources */,
 				49544E5321E87CDE00092CE7 /* TaiChiViewController.swift in Sources */,
 				49696E0F21EF599600B23804 /* Video.swift in Sources */,
 				49F0D9D8220285A900B4BF0F /* WarmUpDateExtension.swift in Sources */,
 				49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */,
+				495F2E62220BE9A700D56049 /* roundCornerExtension.swift in Sources */,
+				49709B3E220B2218003DD139 /* textFieldIcon.swift in Sources */,
 				49544E5121E87CD400092CE7 /* WarmUpViewController.swift in Sources */,
 				49696E1121EF59C400B23804 /* Day.swift in Sources */,
 				49544E5821E880EA00092CE7 /* VideoTableViewCell.swift in Sources */,
+				495F2E64220C728300D56049 /* buttonShadowExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
