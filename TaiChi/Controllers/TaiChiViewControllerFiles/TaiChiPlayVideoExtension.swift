@@ -18,7 +18,7 @@ extension TaiChiViewController {
             videoPlayer.player = video
             
             let fullLength = getVideoLength(url: url)
-            print("fullLength", fullLength)
+
             
             present(videoPlayer, animated: true) {
                 video.play()
@@ -91,7 +91,7 @@ extension TaiChiViewController {
     
     func updateProgressLabel(cell: VideoTableViewCell, indexPath: IndexPath, progress: Int) {
         // Updating UI
-        cell.progressLabel.text = "\(progress)%"
+        cell.progressRing.startProgress(to: CGFloat(progress), duration: 2)
     }
     
     
@@ -136,13 +136,13 @@ extension TaiChiViewController {
     }
     
     
-    func readProgress(videoName: String) -> String {
+    func readProgress(videoName: String) -> Int {
         let progressObject = realm.objects(Progress.self).filter("videoName == '\(videoName)'").first
         if progressObject == nil {
-            return "0%"
+            return 0
         }
         let progress = progressObject!.percentage
-        return "\(progress)%"
+        return progress
     }
 }
 

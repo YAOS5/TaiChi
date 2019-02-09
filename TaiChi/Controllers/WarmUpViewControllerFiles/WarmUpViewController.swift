@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import RealmSwift
+import UICircularProgressRing
 
 class WarmUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -47,7 +48,10 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
         cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
-        cell.progressLabel.text = readProgress(videoName: cell.videoLabel.text!)
+        
+        // loading progress
+        let progress : Int = readProgress(videoName: cell.videoLabel.text!)
+        cell.progressRing.startProgress(to: CGFloat(progress), duration: 40.0)
         return cell
     }
     

@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import UICircularProgressRing
 
 class VideoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var videoImageView: UIImageView!
     @IBOutlet weak var videoLabel: UILabel!
-    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var progressRing: UICircularProgressRing!
     
     
     override func awakeFromNib() {

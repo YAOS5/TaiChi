@@ -35,32 +35,58 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-Ag-QEZ">
-                        <rect key="frame" x="345" y="50.5" width="50" height="19"/>
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="avs-R1-qYy" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                        <rect key="frame" x="342" y="31" width="58" height="58"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="bNA-go-3qk"/>
+                            <constraint firstAttribute="height" constant="58" id="JaG-fc-s8H"/>
+                            <constraint firstAttribute="width" constant="58" id="cRX-c4-dvm"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="SnellRoundhand-Black" family="Snell Roundhand" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="50"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minValue">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullCircle" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                <color key="value" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                <real key="value" value="100"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="bsb-Ag-QEZ" secondAttribute="trailing" constant="5" id="0XE-am-sv4"/>
+                    <constraint firstItem="avs-R1-qYy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J5E-lt-HER"/>
                     <constraint firstItem="PFc-92-Upb" firstAttribute="leading" secondItem="epd-2m-CbR" secondAttribute="trailing" constant="25" id="LrM-KT-fYo"/>
                     <constraint firstItem="epd-2m-CbR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="M3w-bk-1xp"/>
                     <constraint firstItem="PFc-92-Upb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cD6-dM-boA"/>
-                    <constraint firstItem="bsb-Ag-QEZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iR8-5h-5Db"/>
+                    <constraint firstItem="avs-R1-qYy" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="i0t-sr-H1Q"/>
                     <constraint firstItem="epd-2m-CbR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uC2-zh-jwx"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="progressLabel" destination="bsb-Ag-QEZ" id="rSm-Og-Shu"/>
+                <outlet property="progressRing" destination="avs-R1-qYy" id="zUs-Vf-HeW"/>
                 <outlet property="videoImageView" destination="epd-2m-CbR" id="tAl-gN-XK2"/>
                 <outlet property="videoLabel" destination="PFc-92-Upb" id="l8K-ww-Re0"/>
             </connections>
-            <point key="canvasLocation" x="217.59999999999999" y="82.758620689655174"/>
+            <point key="canvasLocation" x="192" y="78"/>
         </tableViewCell>
     </objects>
 </document>
