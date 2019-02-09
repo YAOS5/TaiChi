@@ -135,7 +135,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nt8-Jq-nzR"/>
+                    <navigationItem key="navigationItem" id="nt8-Jq-nzR">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="gp6-I9-QGt"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="loginButton" destination="2lg-EQ-Iff" id="4PV-w3-p6g"/>
                         <outlet property="password" destination="hWE-Du-v7n" id="ada-tY-9Bt"/>
@@ -353,7 +355,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0ZF-Wv-I72" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JWH-zn-cH6">
+                    <navigationBar key="navigationBar" alpha="0.80000000000000004" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JWH-zn-cH6">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

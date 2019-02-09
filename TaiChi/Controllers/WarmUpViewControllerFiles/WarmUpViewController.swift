@@ -33,6 +33,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem!.title = "返回"
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         let videoNibCell = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.register(videoNibCell, forCellReuseIdentifier: "VideoTableViewCell")
@@ -52,7 +53,7 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     // Adjusting the height of the rows, might change it later
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

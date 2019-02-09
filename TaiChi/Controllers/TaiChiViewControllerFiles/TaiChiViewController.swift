@@ -34,6 +34,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.topItem!.title = "返回"
         let videoNibCell = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.register(videoNibCell, forCellReuseIdentifier: "VideoTableViewCell")
     }
@@ -52,7 +53,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 120
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
