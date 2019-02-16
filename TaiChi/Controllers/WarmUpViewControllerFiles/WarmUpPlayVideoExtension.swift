@@ -50,7 +50,7 @@ extension WarmUpViewController {
     func getVideoLength(url: URL) -> Double {
         let asset = AVAsset(url: url)
         let duration = asset.duration
-        // rounding to one decimal place
+        /* rounding to one decimal place */
         let fullLength: Double = Double(CMTimeGetSeconds(duration) * 10).rounded() / 10
         
         return fullLength
@@ -73,7 +73,7 @@ extension WarmUpViewController {
     
     func manageProgress (indexPath: IndexPath, fullLength: Double, seconds: Double) {
         var progress = Int((seconds / fullLength) * 100)
-        // If most of the video has been played, then we just turn it to 100
+        /* If most of the video has been played, then we just turn it to 100 */
         if progress > 95 {
             progress = 100
         }
@@ -82,27 +82,26 @@ extension WarmUpViewController {
         let videoName = cell.videoLabel.text!
         let validProgress = updateProgressDB(videoName: videoName, newProgress: progress)
         
-        //TODO: the progress aint done
         updateProgressLabel(cell: cell, indexPath: indexPath, progress: validProgress)
     }
     
     
     func updateProgressLabel(cell: VideoTableViewCell, indexPath: IndexPath, progress: Int) {
-        // Updating UI
+        /* Updating UI */
         cell.progressRing.startProgress(to: CGFloat(progress), duration: 2)
     }
     
     
     func updateProgressDB(videoName: String, newProgress: Int) -> Int {
-        // Check if the video indexPath already exist
+        /* Check if the video indexPath already exist */
         let progressObject = realm.objects(Progress.self).filter("videoName == '\(videoName)'").first
         if progressObject == nil {
-            // If it doesn't, add it to the DB
+            /* If it doesn't, add it to the DB */
             addNewProgress(videoName: videoName, progress: newProgress)
             return newProgress
         }
         else {
-            // If it does, check if it requires updating
+            /* If it does, check if it requires updating */
             let oldProgress = progressObject!.percentage
             if compareProgress(oldProgress: oldProgress, newProgress: newProgress) {
                 try! realm.write {

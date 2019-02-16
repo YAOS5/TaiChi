@@ -35,7 +35,6 @@ extension TaiChiViewController {
         }
         
         dayInfoArray.append(videosInfoArray)
-        //        print("dayInfoArray", dayInfoArray)
         return dayInfoArray
     }
     
@@ -57,7 +56,6 @@ extension TaiChiViewController {
         }
         
         videoInfoArray.append(contentsOf: playTimeArray)
-        //        print("videoInfoArray", videoInfoArray)
         return videoInfoArray
     }
     
@@ -72,13 +70,6 @@ extension TaiChiViewController {
         playTimeDict["startTime"] = startTime
         playTimeDict["endTime"] = endTime
         
-        //        print("playTimeDict", playTimeDict)
         return playTimeDict
-        //        let startHour = playTime.startTime[0]
-        //        let startMinute = playTime.startTime[1]
-        //        let startSecond = playTime.startTime[2]
-        //        let endHour = playTime.endTime[0]
-        //        let endMinute = playTime.endTime[1]
-        //        let endSecond = playTime.endTime[2]
     }
 }

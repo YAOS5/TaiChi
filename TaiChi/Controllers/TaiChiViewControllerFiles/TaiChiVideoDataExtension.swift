@@ -68,14 +68,14 @@ extension TaiChiViewController {
     
     func updateTimeDB(videoObject: Video, startTime: List<Int>?, endTime: List<Int>?) {
         if shouldStartNewEntry(startTime: startTime) {
-            // Then it means that the previous start-end pair is already complete
+            /* Then it means that the previous start-end pair is already complete */
             let playTime = PlayTime(startTime: startTime, endTime: endTime)
             try! realm.write {
                 videoObject.playTimeList.append(playTime)
             }
         }
         else {
-            // Then it means the previous pair is not complete yet
+            /* Then it means the previous pair is not complete yet */
             try! realm.write {
                 if videoObject.playTimeList.last!.endTime.count == 0 {
                     videoObject.playTimeList.last!.endTime.append(objectsIn: endTime!)

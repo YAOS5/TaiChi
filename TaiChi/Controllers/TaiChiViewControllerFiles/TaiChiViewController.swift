@@ -50,7 +50,7 @@ class TaiChiViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
         
-        // loading progress
+        /* loading progress */
         let progress : Int = readProgress(videoName: cell.videoLabel.text!)
         cell.progressRing.startProgress(to: CGFloat(progress), duration: 40.0)
         return cell

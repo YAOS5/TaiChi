@@ -35,7 +35,6 @@ extension WarmUpViewController {
         }
         
         dayInfoArray.append(videosInfoArray)
-//        print("dayInfoArray", dayInfoArray)
         return dayInfoArray
     }
     
@@ -57,14 +56,12 @@ extension WarmUpViewController {
         }
         
         videoInfoArray.append(contentsOf: playTimeArray)
-//        print("videoInfoArray", videoInfoArray)
         return videoInfoArray
     }
     
     
     func getPlayTimeInfo(playTime: PlayTime) -> Dictionary<String, Array<Int>> {
         /* Returns an dictionary which stores string keys and List-of-Int values */
-        
         var playTimeDict = [String: Array<Int>]()
 
         let startTime = Array(playTime.startTime)
@@ -72,13 +69,6 @@ extension WarmUpViewController {
         playTimeDict["startTime"] = startTime
         playTimeDict["endTime"] = endTime
         
-//        print("playTimeDict", playTimeDict)
         return playTimeDict
-//        let startHour = playTime.startTime[0]
-//        let startMinute = playTime.startTime[1]
-//        let startSecond = playTime.startTime[2]
-//        let endHour = playTime.endTime[0]
-//        let endMinute = playTime.endTime[1]
-//        let endSecond = playTime.endTime[2]
     }
 }

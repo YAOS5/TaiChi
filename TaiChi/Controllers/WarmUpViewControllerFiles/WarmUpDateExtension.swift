@@ -12,37 +12,24 @@ import RealmSwift
 
 extension WarmUpViewController {
     
-    //    func getLastDateOnRecord() -> Date? {
-    //        let dayObject = realm.objects(Day.self).last
-    //        print("dayObject?.date", dayObject?.date)
-    //        if dayObject?.date == nil {
-    //            return nil
-    //        }
-    //        return Date(fromString: (dayObject?.date)!, format: .isoDate)
-    //    }
-    //
-    //
-    
-    
-    
     func updateDayDB(category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         
         let currentDate = Date()
         let dayObjects = realm.objects(Day.self)
         let dayObject = dayObjects.last
         if (dayObject == nil) || (dayObject?.date != currentDate.toString(format: .isoDate)) {
-            // Creating and adding the new day object to the database
+            /* Creating and adding the new day object to the database */
             let newDayObject = createNewDay(currentDate: currentDate)
             try! realm.write {
                 realm.add(newDayObject)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
             
-            // Check everyday besides today, to see if their totalTime is calculated
+            /* Check everyday besides today, to see if their totalTime is calculated */
             updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
         }
         else {
-            // Then we can use the existing dateObject
+            /* Then we can use the existing dateObject */
             updateVideoDB(dayObject: dayObject!, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
         }
     }
@@ -81,9 +68,7 @@ extension WarmUpViewController {
             for j in 0 ..< playTimeList.count {
                 let startTime = playTimeList[j].startTime
                 let endTime = playTimeList[j].endTime
-//                print(startTime)
-//                print(endTime)
-                // To make it more secure
+                /* To make it more secure */
                 if (startTime.count == 3) && (endTime.count == 3) {
                     totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
                 }
@@ -99,19 +84,19 @@ extension WarmUpViewController {
     func calculatePlayDuration(startTime: List<Int>, endTime: List<Int>) -> Int {
         
         var totalSeconds = 0
-        // Making sure no one watched a video at midnight
+        /* Making sure no one watched a video at midnight */
         let hour = 0
         let minutes = 1
         let seconds = 2
         assert(startTime[hour] <= endTime[hour])
         
-        // Hour calculation
+        /* Hour calculation */
         var hourDiff = endTime[hour] - startTime[hour]
         var minutesDiff : Int
         var secondsDiff : Int
         
         print(hourDiff)
-        // Minutes calculation
+        /* Minutes calculation */
         if new(startInt: startTime[hour], endInt: endTime[hour]) {
             hourDiff -= 1
             minutesDiff = endTime[minutes] + 60 - startTime[minutes]
@@ -119,8 +104,8 @@ extension WarmUpViewController {
         else {
             minutesDiff = endTime[minutes] - startTime[minutes]
         }
-//        print(minutesDiff)
-        // Seconds calculation
+        
+        /* Seconds calculation */
         if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
             minutesDiff -= 1
             secondsDiff = endTime[seconds] + 60 - startTime[seconds]
@@ -128,9 +113,7 @@ extension WarmUpViewController {
         else {
             secondsDiff = endTime[seconds] - startTime[seconds]
         }
-//        print(secondsDiff)
         totalSeconds = hourToSeconds(hour: hourDiff) + minutesToSeconds(minutes: minutesDiff) + secondsDiff
-//        print(totalSeconds)
         return totalSeconds
     }
     

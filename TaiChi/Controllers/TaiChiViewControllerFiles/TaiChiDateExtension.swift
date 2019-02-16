@@ -31,18 +31,18 @@ extension TaiChiViewController {
         let dayObjects = realm.objects(Day.self)
         let dayObject = dayObjects.last
         if (dayObject == nil) || (dayObject?.date != currentDate.toString(format: .isoDate)) {
-            // Creating and adding the new day object to the database
+            /* Creating and adding the new day object to the database */
             let newDayObject = createNewDay(currentDate: currentDate)
             try! realm.write {
                 realm.add(newDayObject)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
             
-            // Check everyday besides today, to see if their totalTime is calculated
+            /* Check everyday besides today, to see if their totalTime is calculated */
             updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
         }
         else {
-            // Then we can use the existing dateObject
+            /* Then we can use the existing dateObject */
             updateVideoDB(dayObject: dayObject!, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
         }
     }
@@ -81,7 +81,7 @@ extension TaiChiViewController {
             for j in 0 ..< playTimeList.count {
                 let startTime = playTimeList[j].startTime
                 let endTime = playTimeList[j].endTime
-                // To make it more secure
+                /* To make it more secure */
                 if (startTime.count == 3) && (endTime.count == 3) {
                     totalTimeInSeconds += calculatePlayDuration(startTime: startTime, endTime: endTime)
                 }
@@ -97,18 +97,18 @@ extension TaiChiViewController {
     func calculatePlayDuration(startTime: List<Int>, endTime: List<Int>) -> Int {
         
         var totalSeconds = 0
-        // Making sure no one watched a video at midnight
+        /* Making sure no one watched a video at midnight */
         let hour = 0
         let minutes = 1
         let seconds = 2
         assert(startTime[hour] <= endTime[hour])
         
-        // Hour calculation
+        /* Hour calculation */
         var hourDiff = endTime[hour] - startTime[hour]
         var minutesDiff : Int
         var secondsDiff : Int
         
-        // Minutes calculation
+        /* Minutes calculation */
         if new(startInt: startTime[hour], endInt: endTime[hour]) {
             hourDiff -= 1
             minutesDiff = endTime[minutes] + 60 - startTime[minutes]
@@ -116,7 +116,7 @@ extension TaiChiViewController {
         else {
             minutesDiff = endTime[minutes] - startTime[minutes]
         }
-        // Seconds calculation
+        /* Seconds calculation */
         if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
             minutesDiff -= 1
             secondsDiff = endTime[seconds] + 60 - startTime[seconds]
