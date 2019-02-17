@@ -31,6 +31,8 @@
 		49709B3E220B2218003DD139 /* textFieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49709B3D220B2218003DD139 /* textFieldIcon.swift */; };
 		499DB8C22205F217008AB45B /* orange background.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C12205F216008AB45B /* orange background.png */; };
 		499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C52205FADE008AB45B /* Ying Yang.png */; };
+		49D92CDB2218D1600086295D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D92CDA2218D1600086295D /* Login.swift */; };
+		49D92CDD2218D22D0086295D /* LoginVCPasswordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */; };
 		49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB505E21FD8B0F008EB865 /* Progress.swift */; };
 		49F0D9D8220285A900B4BF0F /* WarmUpDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D9D7220285A900B4BF0F /* WarmUpDateExtension.swift */; };
 		49F0D9DA220285B600B4BF0F /* TaiChiDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F0D9D9220285B600B4BF0F /* TaiChiDateExtension.swift */; };
@@ -67,6 +69,8 @@
 		49709B3D220B2218003DD139 /* textFieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textFieldIcon.swift; sourceTree = "<group>"; };
 		499DB8C12205F216008AB45B /* orange background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange background.png"; sourceTree = "<group>"; };
 		499DB8C52205FADE008AB45B /* Ying Yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ying Yang.png"; sourceTree = "<group>"; };
+		49D92CDA2218D1600086295D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCPasswordExtension.swift; sourceTree = "<group>"; };
 		49EB505E21FD8B0F008EB865 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
 		49F0D9D7220285A900B4BF0F /* WarmUpDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpDateExtension.swift; sourceTree = "<group>"; };
 		49F0D9D9220285B600B4BF0F /* TaiChiDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiChiDateExtension.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				49696E0E21EF599600B23804 /* Video.swift */,
 				49696E0C21EF592500B23804 /* PlayTime.swift */,
 				49EB505E21FD8B0F008EB865 /* Progress.swift */,
+				49D92CDA2218D1600086295D /* Login.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				49F33AF121E86F4300F93F34 /* LoginViewController.swift */,
+				49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */,
 				49F33B0221E874AF00F93F34 /* SelectionViewController.swift */,
 				4912372C22014DB000001D97 /* WarmUpViewControllerFiles */,
 				4912372D22014DC800001D97 /* TaiChiViewControllerFiles */,
@@ -363,12 +369,14 @@
 				49696E0D21EF592500B23804 /* PlayTime.swift in Sources */,
 				4912372522014BCC00001D97 /* WarmUpPlayVideoExtension.swift in Sources */,
 				495F2E66220C7AED00D56049 /* retractKeyboardExtension.swift in Sources */,
+				49D92CDD2218D22D0086295D /* LoginVCPasswordExtension.swift in Sources */,
 				49F0D9DA220285B600B4BF0F /* TaiChiDateExtension.swift in Sources */,
 				49544E5321E87CDE00092CE7 /* TaiChiViewController.swift in Sources */,
 				49696E0F21EF599600B23804 /* Video.swift in Sources */,
 				49F0D9D8220285A900B4BF0F /* WarmUpDateExtension.swift in Sources */,
 				49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */,
 				495F2E62220BE9A700D56049 /* roundCornerExtension.swift in Sources */,
+				49D92CDB2218D1600086295D /* Login.swift in Sources */,
 				49709B3E220B2218003DD139 /* textFieldIcon.swift in Sources */,
 				49544E5121E87CD400092CE7 /* WarmUpViewController.swift in Sources */,
 				49696E1121EF59C400B23804 /* Day.swift in Sources */,

@@ -40,7 +40,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-xI-gBq">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
                                 <subviews>
-                                    <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-KQ-6EP" userLabel="Username">
+                                    <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-KQ-6EP" userLabel="Username">
                                         <rect key="frame" x="62.5" y="99.5" width="250" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -85,7 +85,7 @@
                                             <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EyL-cv-qJN"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-Du-v7n" userLabel="passward">
+                                    <textField opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="病案号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWE-Du-v7n" userLabel="passward">
                                         <rect key="frame" x="62.5" y="165.5" width="250" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -94,7 +94,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
@@ -117,6 +117,22 @@
                                     <constraint firstItem="hWE-Du-v7n" firstAttribute="top" secondItem="VVg-KQ-6EP" secondAttribute="bottom" constant="6" id="yak-9C-zIF"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名或病案号错误" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJh-k3-jwm">
+                                <rect key="frame" x="87.5" y="313.5" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4aM-ba-uqg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="ew9-ET-j7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="7Ly-nc-xim" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1Lo-VD-BUn"/>
@@ -124,6 +140,8 @@
                             <constraint firstItem="WnG-xI-gBq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8dd-cr-H9I"/>
                             <constraint firstItem="7Ly-nc-xim" firstAttribute="height" secondItem="WnG-xI-gBq" secondAttribute="height" id="DAT-so-9gz"/>
                             <constraint firstItem="MRf-aD-8FF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="KID-bc-Rid"/>
+                            <constraint firstItem="gJh-k3-jwm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NLE-dW-c4y"/>
+                            <constraint firstItem="gJh-k3-jwm" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VFt-0c-6ZZ"/>
                             <constraint firstItem="MRf-aD-8FF" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="W3K-Fv-wtV"/>
                             <constraint firstItem="7Ly-nc-xim" firstAttribute="width" secondItem="WnG-xI-gBq" secondAttribute="width" id="WtY-bu-maO"/>
                             <constraint firstItem="7Ly-nc-xim" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="etq-Ho-CL9"/>
@@ -139,9 +157,10 @@
                         <barButtonItem key="backBarButtonItem" title="返回" id="gp6-I9-QGt"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="ID" destination="hWE-Du-v7n" id="IAG-5m-MH9"/>
+                        <outlet property="errorLabel" destination="gJh-k3-jwm" id="9JR-b9-HMW"/>
                         <outlet property="loginButton" destination="2lg-EQ-Iff" id="4PV-w3-p6g"/>
-                        <outlet property="password" destination="hWE-Du-v7n" id="ada-tY-9Bt"/>
-                        <outlet property="userName" destination="VVg-KQ-6EP" id="ex3-vm-hJo"/>
+                        <outlet property="name" destination="VVg-KQ-6EP" id="ZvM-0t-IjS"/>
                         <segue destination="3x1-Et-ead" kind="show" identifier="toSelection" id="n3y-ov-V8H"/>
                     </connections>
                 </viewController>

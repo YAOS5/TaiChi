@@ -7,17 +7,32 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
-
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.getShadow(button: loginButton)
+        initErrorLabel()
+        
         self.hideKeyboard()
-        self.userName.delegate = self
-        self.password.delegate = self
+        self.name.delegate = self
+        self.ID.delegate = self
+        
+        
+        /* Check if the user is logging in for the first time */
+        if !isFirstTimeLogin() {
+            /* Autofill the two text fields if the user has logged in before */
+            let loginObject = realm.objects(Login.self).first!
+            name.text = loginObject.Name
+            ID.text = loginObject.ID
+        }
     }
     
     
@@ -31,30 +46,52 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     /* Configuring the login text fields */
-    @IBOutlet weak var userName: UITextField! {
+    @IBOutlet weak var name: UITextField! {
         didSet {
-            userName.tintColor = UIColor.lightGray
-            userName.setIcon(UIImage(imageLiteralResourceName: "UserAvatar"))
-        }
-    }
-    @IBOutlet weak var password: UITextField! {
-        didSet {
-            password.tintColor = UIColor.lightGray
-            password.setIcon(UIImage(imageLiteralResourceName: "Lock"))
+            name.tintColor = UIColor.lightGray
+            name.setIcon(UIImage(imageLiteralResourceName: "UserAvatar"))
         }
     }
     
+    @IBOutlet weak var ID: UITextField! {
+        didSet {
+            ID.tintColor = UIColor.lightGray
+            ID.setIcon(UIImage(imageLiteralResourceName: "Lock"))
+        }
+    }
     
     
     @IBAction func loginButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSelection", sender: self)
+        if checkCredentialsWithCloudDB() {
+            if isFirstTimeLogin() {
+                /* If the user is also logging in for the first time,
+                 store the name and ID locally too */
+                let loginObject = createLoginObjectFromTextFields()
+                try! realm.write {
+                    realm.add(loginObject)
+                }
+            }
+            performSegue(withIdentifier: "toSelection", sender: self)
+        }
+        else {
+            //TODO: Have a pop up prompting for wrong password
+            errorLabel.isHidden = false
+            print("credentials error")
+        }
     }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        userName.resignFirstResponder()
-        password.resignFirstResponder()
+        name.resignFirstResponder()
+        ID.resignFirstResponder()
         return true
+    }
+    
+    
+    func initErrorLabel() {
+        errorLabel.layer.masksToBounds = true
+        errorLabel.layer.cornerRadius = 10
+        errorLabel.isHidden = true
     }
 
 }
