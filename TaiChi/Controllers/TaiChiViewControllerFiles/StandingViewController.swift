@@ -1,5 +1,5 @@
 //
-//  WarmUpViewController.swift
+//  TaiChiViewController.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 11/1/19.
@@ -11,11 +11,12 @@ import AVKit
 import RealmSwift
 import UICircularProgressRing
 
-class WarmUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class StandingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     let realm = try! Realm()
     
     @IBOutlet weak var tableView: UITableView!
+    
     
     var isLoopPlayEnabled = false
     @IBAction func loopSwitch(_ sender: UISwitch) {
@@ -35,10 +36,10 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.topItem!.title = "返回"
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let videoNibCell = UINib(nibName: "VideoTableViewCell", bundle: nil)
         tableView.register(videoNibCell, forCellReuseIdentifier: "VideoTableViewCell")
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testArray.count
@@ -49,13 +50,12 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
         cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
         
-        // loading progress
+        /* loading progress */
         let progress : Int = readProgress(videoName: cell.videoLabel.text!)
         cell.progressRing.startProgress(to: CGFloat(progress), duration: 40.0)
         return cell
     }
     
-    // Adjusting the height of the rows, might change it later
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
@@ -65,9 +65,9 @@ class WarmUpViewController: UIViewController, UITableViewDataSource, UITableView
         
         /* feed the database the start time of the video */
         let startTime = getTime()
-        updateDayDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
+        updateDayDB(category: "TaiChi", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
+
 }

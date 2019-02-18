@@ -9,7 +9,7 @@
 import Foundation
 import AVKit
 
-extension TaiChiViewController {
+extension SittingViewController {
     func playVideo(videoName: String, indexPath: IndexPath) {
         if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
             let url = URL(fileURLWithPath: path)
@@ -18,8 +18,6 @@ extension TaiChiViewController {
             videoPlayer.player = video
             
             let fullLength = getVideoLength(url: url)
-
-            
             present(videoPlayer, animated: true) {
                 video.play()
             }
@@ -36,7 +34,6 @@ extension TaiChiViewController {
         video.addPeriodicTimeObserver(forInterval: interval, queue: nil) { (time) in
             seconds = Double(CMTimeGetSeconds(time))
             
-            
             /* If it reaches the end of the video, then seek to the beginning */
             self.tryLoopPlay(video: video, fullLength: fullLength, seconds: seconds)
             
@@ -45,7 +42,7 @@ extension TaiChiViewController {
             
             /* Feed the database the end time of the video*/
             let endTime = self.getTime()
-            self.updateDayDB(category: "TaiChi", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
+            self.updateDayDB(category: "WarmUp", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
         }
     }
     

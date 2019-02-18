@@ -10,7 +10,7 @@ import Foundation
 import AFDateHelper
 import RealmSwift
 
-extension WarmUpViewController {
+extension SittingViewController {
     
     func updateDayDB(category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         

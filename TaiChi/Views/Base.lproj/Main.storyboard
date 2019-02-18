@@ -171,7 +171,7 @@
         <!--Warm Up View Controller-->
         <scene sceneID="FrX-LL-sNh">
             <objects>
-                <viewController id="9aw-IK-ISL" userLabel="Warm Up View Controller" customClass="WarmUpViewController" customModule="TaiChi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9aw-IK-ISL" userLabel="Warm Up View Controller" customClass="SittingViewController" customModule="TaiChi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdH-xX-QTD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +222,7 @@
         <!--Tai Chi View Controller-->
         <scene sceneID="bya-fB-ZTR">
             <objects>
-                <viewController id="Hdm-GX-ver" userLabel="Tai Chi View Controller" customClass="TaiChiViewController" customModule="TaiChi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Hdm-GX-ver" userLabel="Tai Chi View Controller" customClass="StandingViewController" customModule="TaiChi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Za-Yp-ut7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

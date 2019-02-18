@@ -9,7 +9,7 @@
 import Foundation
 import AVKit
 
-extension WarmUpViewController {
+extension StandingViewController {
     func playVideo(videoName: String, indexPath: IndexPath) {
         if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
             let url = URL(fileURLWithPath: path)
@@ -18,6 +18,8 @@ extension WarmUpViewController {
             videoPlayer.player = video
             
             let fullLength = getVideoLength(url: url)
+
+            
             present(videoPlayer, animated: true) {
                 video.play()
             }
@@ -43,7 +45,7 @@ extension WarmUpViewController {
             
             /* Feed the database the end time of the video*/
             let endTime = self.getTime()
-            self.updateDayDB(category: "WarmUp", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
+            self.updateDayDB(category: "TaiChi", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
         }
     }
     

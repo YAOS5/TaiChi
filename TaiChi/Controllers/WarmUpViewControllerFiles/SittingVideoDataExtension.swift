@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-extension WarmUpViewController {
+extension SittingViewController {
     
     func getTime() -> List<Int> {
         /* Getting the current time and returning the values in a list for realm */

@@ -18,7 +18,7 @@ extension LoginViewController {
     
     func checkCredentialsWithCloudDB() -> Bool {
         //TODO: Modify this ethod after networking bit is done
-        return false
+        return true
     }
     
     

@@ -10,7 +10,7 @@ import Foundation
 import AFDateHelper
 import RealmSwift
 
-extension TaiChiViewController {
+extension StandingViewController {
     
     //    func getLastDateOnRecord() -> Date? {
     //        let dayObject = realm.objects(Day.self).last

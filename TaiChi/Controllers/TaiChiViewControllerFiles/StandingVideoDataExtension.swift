@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-extension TaiChiViewController {
+extension StandingViewController {
     
     func getTime() -> List<Int> {
         let date = Date()

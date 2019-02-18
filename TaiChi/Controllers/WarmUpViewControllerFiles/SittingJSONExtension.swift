@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-extension TaiChiViewController {
+extension SittingViewController {
     
     
     func createJSONObject(dayInfoArray: Array<Any>) -> JSON {
@@ -62,9 +62,8 @@ extension TaiChiViewController {
     
     func getPlayTimeInfo(playTime: PlayTime) -> Dictionary<String, Array<Int>> {
         /* Returns an dictionary which stores string keys and List-of-Int values */
-        
         var playTimeDict = [String: Array<Int>]()
-        
+
         let startTime = Array(playTime.startTime)
         let endTime = Array(playTime.endTime)
         playTimeDict["startTime"] = startTime

@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import RealmSwift
 
-extension WarmUpViewController {
+extension StandingViewController {
     
     
     func createJSONObject(dayInfoArray: Array<Any>) -> JSON {
@@ -62,8 +62,9 @@ extension WarmUpViewController {
     
     func getPlayTimeInfo(playTime: PlayTime) -> Dictionary<String, Array<Int>> {
         /* Returns an dictionary which stores string keys and List-of-Int values */
+        
         var playTimeDict = [String: Array<Int>]()
-
+        
         let startTime = Array(playTime.startTime)
         let endTime = Array(playTime.endTime)
         playTimeDict["startTime"] = startTime
