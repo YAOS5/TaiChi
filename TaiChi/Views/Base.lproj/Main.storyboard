@@ -292,7 +292,7 @@
                                             <constraint firstAttribute="height" constant="200" id="zEm-LE-Peo"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="打太极">
+                                        <state key="normal" title="站式太极">
                                             <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -321,7 +321,7 @@
                                             <constraint firstAttribute="height" constant="200" id="pgj-gQ-Xx0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="做热身">
+                                        <state key="normal" title="坐式太极">
                                             <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>

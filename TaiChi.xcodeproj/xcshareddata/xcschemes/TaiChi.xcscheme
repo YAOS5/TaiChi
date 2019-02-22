@@ -86,6 +86,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "TaiChi with two test videos"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

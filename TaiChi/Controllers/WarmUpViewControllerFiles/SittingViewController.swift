@@ -28,8 +28,8 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg"]
-    let titleArray : [String] = ["rehab video 1", "rehab video 2", "rehab video 3"]
+    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let titleArray : [String] = ["完整演示版", "概述", "第一式", "第二式", "第三式", "第四式", "第五式", "第六式", "第七式", "第八式", "第九式"]
     
     
     override func viewDidLoad() {
@@ -61,7 +61,7 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        playVideo(videoName: "\(indexPath.row)", indexPath: indexPath)
+        playVideo(videoName: "s\(indexPath.row)", indexPath: indexPath)
         
         /* feed the database the start time of the video */
         let startTime = getTime()

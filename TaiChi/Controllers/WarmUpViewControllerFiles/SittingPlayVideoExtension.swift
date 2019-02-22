@@ -11,7 +11,7 @@ import AVKit
 
 extension SittingViewController {
     func playVideo(videoName: String, indexPath: IndexPath) {
-        if let path = Bundle.main.path(forResource: videoName, ofType: "MP4") {
+        if let path = Bundle.main.path(forResource: videoName, ofType: "mp4") {
             let url = URL(fileURLWithPath: path)
             let video = AVPlayer(url: url)
             let videoPlayer = AVPlayerViewController()
