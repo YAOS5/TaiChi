@@ -50,7 +50,7 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.videoLabel.text = titleArray[indexPath.row]
         
         // loading progress
-        let progress : Int = readProgress(videoCode: cell.videoLabel.text!)
+        let progress : Int = readProgress(videoCode: "s\(indexPath.row)")
         cell.progressRing.startProgress(to: CGFloat(progress), duration: 0)
         return cell
     }

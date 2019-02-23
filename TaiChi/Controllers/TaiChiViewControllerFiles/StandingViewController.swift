@@ -49,9 +49,8 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
         cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
-        
         /* loading progress */
-        let progress : Int = readProgress(videoCode: cell.videoLabel.text!)
+        let progress : Int = readProgress(videoCode: "m\(indexPath.row)")
         cell.progressRing.startProgress(to: CGFloat(progress), duration: 0)
         return cell
     }
