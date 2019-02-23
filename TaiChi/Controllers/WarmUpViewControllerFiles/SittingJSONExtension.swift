@@ -1,5 +1,5 @@
 //
-//  WarmUpJSONExtension.swift
+//  SittingJSONExtension.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 5/2/19.

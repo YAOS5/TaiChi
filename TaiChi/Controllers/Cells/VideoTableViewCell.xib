@@ -27,11 +27,11 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFc-92-Upb">
-                        <rect key="frame" x="135" y="49.5" width="130" height="20.5"/>
+                        <rect key="frame" x="125" y="51" width="180" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="130" id="YqK-Ko-zDg"/>
+                            <constraint firstAttribute="width" constant="180" id="YqK-Ko-zDg"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -73,7 +73,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="avs-R1-qYy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="J5E-lt-HER"/>
-                    <constraint firstItem="PFc-92-Upb" firstAttribute="leading" secondItem="epd-2m-CbR" secondAttribute="trailing" constant="25" id="LrM-KT-fYo"/>
+                    <constraint firstItem="PFc-92-Upb" firstAttribute="leading" secondItem="epd-2m-CbR" secondAttribute="trailing" constant="15" id="LrM-KT-fYo"/>
                     <constraint firstItem="epd-2m-CbR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="M3w-bk-1xp"/>
                     <constraint firstItem="PFc-92-Upb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cD6-dM-boA"/>
                     <constraint firstItem="avs-R1-qYy" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="i0t-sr-H1Q"/>
@@ -86,7 +86,7 @@
                 <outlet property="videoImageView" destination="epd-2m-CbR" id="tAl-gN-XK2"/>
                 <outlet property="videoLabel" destination="PFc-92-Upb" id="l8K-ww-Re0"/>
             </connections>
-            <point key="canvasLocation" x="192" y="78"/>
+            <point key="canvasLocation" x="192" y="77.361319340329842"/>
         </tableViewCell>
     </objects>
 </document>

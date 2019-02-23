@@ -1,5 +1,5 @@
 //
-//  TaiChiViewController.swift
+//  StandingViewController.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 11/1/19.
@@ -29,8 +29,8 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
-    let titleArray : [String] = ["完整演示版", "概述", "第一式", "第二式", "第三式", "第四式", "第五式", "第六式", "第七式", "第八式", "第九式"]
+    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let titleArray : [String] = ["完整演示", "概述", "第一式 野马分鬃", "第二式 搂膝拗步", "第三式 倒卷肱", "第四式 开合式", "第五式 单鞭", "第六式 云手", "第七式 揽雀尾", "第八式 十字手"]
     
     
     override func viewDidLoad() {
@@ -51,8 +51,8 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
         cell.videoLabel.text = titleArray[indexPath.row]
         
         /* loading progress */
-        let progress : Int = readProgress(videoName: cell.videoLabel.text!)
-        cell.progressRing.startProgress(to: CGFloat(progress), duration: 40.0)
+        let progress : Int = readProgress(videoCode: cell.videoLabel.text!)
+        cell.progressRing.startProgress(to: CGFloat(progress), duration: 0)
         return cell
     }
     
@@ -65,7 +65,7 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
         
         /* feed the database the start time of the video */
         let startTime = getTime()
-        updateDayDB(category: "TaiChi", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
+        updateDayDB(category: "Standing", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

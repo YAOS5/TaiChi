@@ -1,5 +1,5 @@
 //
-//  WarmUpViewController.swift
+//  SittingViewController.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 11/1/19.
@@ -28,8 +28,8 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
-    let titleArray : [String] = ["完整演示版", "概述", "第一式", "第二式", "第三式", "第四式", "第五式", "第六式", "第七式", "第八式", "第九式"]
+    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let titleArray : [String] = ["完整演示", "概述", "第一式 升降式", "第二式 云手", "第三式 开合式", "第四式 野马分鬃", "第五式 白鹤亮翅", "第六式 搂膝拗步", "第七式 倒卷肱", "第八式 收势"]
     
     
     override func viewDidLoad() {
@@ -50,8 +50,8 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.videoLabel.text = titleArray[indexPath.row]
         
         // loading progress
-        let progress : Int = readProgress(videoName: cell.videoLabel.text!)
-        cell.progressRing.startProgress(to: CGFloat(progress), duration: 40.0)
+        let progress : Int = readProgress(videoCode: cell.videoLabel.text!)
+        cell.progressRing.startProgress(to: CGFloat(progress), duration: 0)
         return cell
     }
     
@@ -65,7 +65,7 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
         
         /* feed the database the start time of the video */
         let startTime = getTime()
-        updateDayDB(category: "WarmUp", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
+        updateDayDB(category: "Sitting", videoName: "\(titleArray[indexPath.row])", startTime: startTime, endTime: nil)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
     

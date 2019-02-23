@@ -1,5 +1,5 @@
 //
-//  WarmUpPlayVideoExtension.swift
+//  SittingPlayVideoExtension.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 30/1/19.
@@ -42,7 +42,7 @@ extension SittingViewController {
             
             /* Feed the database the end time of the video*/
             let endTime = self.getTime()
-            self.updateDayDB(category: "WarmUp", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
+            self.updateDayDB(category: "Sitting", videoName: "\(self.titleArray[indexPath.row])", startTime: nil, endTime: endTime)
         }
     }
     
@@ -78,8 +78,8 @@ extension SittingViewController {
         }
         
         let cell = self.tableView.cellForRow(at: indexPath) as! VideoTableViewCell
-        let videoName = cell.videoLabel.text!
-        let validProgress = updateProgressDB(videoName: videoName, newProgress: progress)
+        let videoCode = "s\(indexPath.row)"
+        let validProgress = updateProgressDB(videoCode: videoCode, newProgress: progress)
         
         updateProgressLabel(cell: cell, indexPath: indexPath, progress: validProgress)
     }
@@ -87,16 +87,16 @@ extension SittingViewController {
     
     func updateProgressLabel(cell: VideoTableViewCell, indexPath: IndexPath, progress: Int) {
         /* Updating UI */
-        cell.progressRing.startProgress(to: CGFloat(progress), duration: 2)
+        cell.progressRing.startProgress(to: CGFloat(progress), duration: 5)
     }
     
     
-    func updateProgressDB(videoName: String, newProgress: Int) -> Int {
+    func updateProgressDB(videoCode: String, newProgress: Int) -> Int {
         /* Check if the video indexPath already exist */
-        let progressObject = realm.objects(Progress.self).filter("videoName == '\(videoName)'").first
+        let progressObject = realm.objects(Progress.self).filter("videoCode == '\(videoCode)'").first
         if progressObject == nil {
             /* If it doesn't, add it to the DB */
-            addNewProgress(videoName: videoName, progress: newProgress)
+            addNewProgress(videoCode: videoCode, progress: newProgress)
             return newProgress
         }
         else {
@@ -121,9 +121,9 @@ extension SittingViewController {
     }
     
     
-    func addNewProgress(videoName : String, progress: Int) {
+    func addNewProgress(videoCode : String, progress: Int) {
         let progressObject = Progress()
-        progressObject.videoName = videoName
+        progressObject.videoCode = videoCode
         progressObject.percentage = progress
         
         try! realm.write {
@@ -132,8 +132,8 @@ extension SittingViewController {
     }
     
     
-    func readProgress(videoName: String) -> Int {
-        let progressObject = realm.objects(Progress.self).filter("videoName == '\(videoName)'").first
+    func readProgress(videoCode: String) -> Int {
+        let progressObject = realm.objects(Progress.self).filter("videoCode == '\(videoCode)'").first
         if progressObject == nil {
             return 0
         }

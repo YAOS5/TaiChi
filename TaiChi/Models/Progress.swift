@@ -10,12 +10,12 @@ import Foundation
 import RealmSwift
 
 class Progress: Object {
-    @objc dynamic var videoName : String = ""
+    @objc dynamic var videoCode : String = ""
     @objc dynamic var percentage : Int = 0
     
-    convenience init(videoName: String, percentage: Int) {
+    convenience init(videoCode: String, percentage: Int) {
         self.init()
-        self.videoName = videoName
+        self.videoCode = videoCode
         self.percentage = percentage
     }
     

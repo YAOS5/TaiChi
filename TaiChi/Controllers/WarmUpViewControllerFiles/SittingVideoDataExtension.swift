@@ -1,5 +1,5 @@
 //
-//  WarmUpDataExtension.swift
+//  SittingDataExtension.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 30/1/19.
