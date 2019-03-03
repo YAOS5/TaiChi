@@ -24,7 +24,6 @@ extension SittingViewController {
                 realm.add(newDayObject)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
-            
             /* Check everyday besides today, to see if their totalTime is calculated */
             updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
         }

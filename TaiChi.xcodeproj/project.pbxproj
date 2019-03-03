@@ -35,7 +35,6 @@
 		498F976B2224B4900069A353 /* s6.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97642224B4810069A353 /* s6.mp4 */; };
 		498F976C2224B4900069A353 /* s7.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F975B2224B47C0069A353 /* s7.mp4 */; };
 		498F976D2224B4900069A353 /* s8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97632224B4800069A353 /* s8.mp4 */; };
-		498F976E2224B4900069A353 /* s9.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F975F2224B47E0069A353 /* s9.mp4 */; };
 		498F97792224B4B20069A353 /* m0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97732224B4A30069A353 /* m0.mp4 */; };
 		498F977A2224B4B20069A353 /* m1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97762224B4A70069A353 /* m1.mp4 */; };
 		498F977B2224B4B20069A353 /* m2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97742224B4A40069A353 /* m2.mp4 */; };
@@ -46,6 +45,9 @@
 		498F97802224B4B20069A353 /* m7.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97772224B4A80069A353 /* m7.mp4 */; };
 		498F97812224B4B20069A353 /* m8.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97752224B4A50069A353 /* m8.mp4 */; };
 		498F97822224B4B20069A353 /* m9.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F97722224B4A20069A353 /* m9.mp4 */; };
+		498F9784222505B30069A353 /* s9.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 498F975F2224B47E0069A353 /* s9.mp4 */; };
+		498F9786222508080069A353 /* SelfPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F9785222508080069A353 /* SelfPracticeViewController.swift */; };
+		498F9788222610670069A353 /* SelfPracticeDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F9787222610660069A353 /* SelfPracticeDataExtension.swift */; };
 		499DB8C22205F217008AB45B /* orange background.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C12205F216008AB45B /* orange background.png */; };
 		499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 499DB8C52205FADE008AB45B /* Ying Yang.png */; };
 		49D92CDB2218D1600086295D /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D92CDA2218D1600086295D /* Login.swift */; };
@@ -101,6 +103,8 @@
 		498F97762224B4A70069A353 /* m1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = m1.mp4; sourceTree = "<group>"; };
 		498F97772224B4A80069A353 /* m7.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = m7.mp4; sourceTree = "<group>"; };
 		498F97782224B4A80069A353 /* m3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = m3.mp4; sourceTree = "<group>"; };
+		498F9785222508080069A353 /* SelfPracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPracticeViewController.swift; sourceTree = "<group>"; };
+		498F9787222610660069A353 /* SelfPracticeDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPracticeDataExtension.swift; sourceTree = "<group>"; };
 		499DB8C12205F216008AB45B /* orange background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange background.png"; sourceTree = "<group>"; };
 		499DB8C52205FADE008AB45B /* Ying Yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ying Yang.png"; sourceTree = "<group>"; };
 		49D92CDA2218D1600086295D /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -132,7 +136,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4912372C22014DB000001D97 /* WarmUpViewControllerFiles */ = {
+		4912372C22014DB000001D97 /* SittingViewControllerFiles */ = {
 			isa = PBXGroup;
 			children = (
 				49544E5021E87CD400092CE7 /* SittingViewController.swift */,
@@ -141,10 +145,10 @@
 				49F0D9D7220285A900B4BF0F /* SittingDateExtension.swift */,
 				49709B3722096875003DD139 /* SittingJSONExtension.swift */,
 			);
-			path = WarmUpViewControllerFiles;
+			path = SittingViewControllerFiles;
 			sourceTree = "<group>";
 		};
-		4912372D22014DC800001D97 /* TaiChiViewControllerFiles */ = {
+		4912372D22014DC800001D97 /* StandingViewControllerFiles */ = {
 			isa = PBXGroup;
 			children = (
 				49544E5221E87CDE00092CE7 /* StandingViewController.swift */,
@@ -153,7 +157,7 @@
 				49F0D9D9220285B600B4BF0F /* StandingDateExtension.swift */,
 				49709B3922096889003DD139 /* StandingJSONExtension.swift */,
 			);
-			path = TaiChiViewControllerFiles;
+			path = StandingViewControllerFiles;
 			sourceTree = "<group>";
 		};
 		49544E4721E87A1700092CE7 /* Cells */ = {
@@ -215,6 +219,15 @@
 			path = "Video Resources";
 			sourceTree = "<group>";
 		};
+		498F97892226106F0069A353 /* SelfPracticeViewControllerFiles */ = {
+			isa = PBXGroup;
+			children = (
+				498F9785222508080069A353 /* SelfPracticeViewController.swift */,
+				498F9787222610660069A353 /* SelfPracticeDataExtension.swift */,
+			);
+			path = SelfPracticeViewControllerFiles;
+			sourceTree = "<group>";
+		};
 		49D92CE3221A94A00086295D /* UI resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,8 +287,9 @@
 				49F33AF121E86F4300F93F34 /* LoginViewController.swift */,
 				49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */,
 				49F33B0221E874AF00F93F34 /* SelectionViewController.swift */,
-				4912372C22014DB000001D97 /* WarmUpViewControllerFiles */,
-				4912372D22014DC800001D97 /* TaiChiViewControllerFiles */,
+				498F97892226106F0069A353 /* SelfPracticeViewControllerFiles */,
+				4912372C22014DB000001D97 /* SittingViewControllerFiles */,
+				4912372D22014DC800001D97 /* StandingViewControllerFiles */,
 				49544E4721E87A1700092CE7 /* Cells */,
 			);
 			path = Controllers;
@@ -358,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498F9784222505B30069A353 /* s9.mp4 in Resources */,
 				498F97792224B4B20069A353 /* m0.mp4 in Resources */,
 				498F977A2224B4B20069A353 /* m1.mp4 in Resources */,
 				498F977B2224B4B20069A353 /* m2.mp4 in Resources */,
@@ -377,7 +392,6 @@
 				498F976B2224B4900069A353 /* s6.mp4 in Resources */,
 				498F976C2224B4900069A353 /* s7.mp4 in Resources */,
 				498F976D2224B4900069A353 /* s8.mp4 in Resources */,
-				498F976E2224B4900069A353 /* s9.mp4 in Resources */,
 				499DB8C62205FADE008AB45B /* Ying Yang.png in Resources */,
 				499DB8C22205F217008AB45B /* orange background.png in Resources */,
 				49544E5E21E9796B00092CE7 /* square.jpg in Resources */,
@@ -448,11 +462,13 @@
 				4912372B22014DA100001D97 /* StandingVideoDataExtension.swift in Sources */,
 				49F33B0321E874AF00F93F34 /* SelectionViewController.swift in Sources */,
 				49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */,
+				498F9788222610670069A353 /* SelfPracticeDataExtension.swift in Sources */,
 				4912372722014CF800001D97 /* SittingVideoDataExtension.swift in Sources */,
 				49709B3A22096889003DD139 /* StandingJSONExtension.swift in Sources */,
 				49696E0D21EF592500B23804 /* PlayTime.swift in Sources */,
 				4912372522014BCC00001D97 /* SittingPlayVideoExtension.swift in Sources */,
 				495F2E66220C7AED00D56049 /* retractKeyboardExtension.swift in Sources */,
+				498F9786222508080069A353 /* SelfPracticeViewController.swift in Sources */,
 				49D92CDD2218D22D0086295D /* LoginVCPasswordExtension.swift in Sources */,
 				49F0D9DA220285B600B4BF0F /* StandingDateExtension.swift in Sources */,
 				49544E5321E87CDE00092CE7 /* StandingViewController.swift in Sources */,

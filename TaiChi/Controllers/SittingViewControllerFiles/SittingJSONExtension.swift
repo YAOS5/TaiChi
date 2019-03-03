@@ -16,6 +16,7 @@ extension SittingViewController {
     func createJSONObject(dayInfoArray: Array<Any>) -> JSON {
         
         let json = JSON(arrayLiteral: dayInfoArray)
+        print(json)
         return json
     }
     

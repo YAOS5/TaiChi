@@ -12,6 +12,7 @@ class SelectionViewController: UIViewController {
 
     @IBOutlet weak var warmUpButton: UIButton!
     @IBOutlet weak var taiChiButton: UIButton!
+    @IBOutlet weak var selfPracticeButton: UIButton!
     
     
     
@@ -19,6 +20,7 @@ class SelectionViewController: UIViewController {
         super.viewDidLoad()
         warmUpButton.getShadow(button: warmUpButton)
         taiChiButton.getShadow(button: taiChiButton)
+        selfPracticeButton.getShadow(button: selfPracticeButton)
     }
     
     
@@ -40,6 +42,10 @@ class SelectionViewController: UIViewController {
         performSegue(withIdentifier: "Tai Chi", sender: self)
     }
     
+    
+    @IBAction func selfPracticeButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "Self Practice", sender: self)
+    }
     
 
 }
