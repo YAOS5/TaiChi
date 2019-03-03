@@ -12,19 +12,6 @@ import RealmSwift
 
 extension StandingViewController {
     
-    //    func getLastDateOnRecord() -> Date? {
-    //        let dayObject = realm.objects(Day.self).last
-    //        print("dayObject?.date", dayObject?.date)
-    //        if dayObject?.date == nil {
-    //            return nil
-    //        }
-    //        return Date(fromString: (dayObject?.date)!, format: .isoDate)
-    //    }
-    //
-    //
-
-    
-    
     func updateDayDB(category: String, videoName: String, startTime: List<Int>?, endTime: List<Int>?) {
         
         let currentDate = Date()
@@ -37,9 +24,8 @@ extension StandingViewController {
                 realm.add(newDayObject)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
-            
             /* Check everyday besides today, to see if their totalTime is calculated */
-            updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
+            updateTotalWatchTimeInSeconds(dayObjects: dayObjects)
         }
         else {
             /* Then we can use the existing dateObject */
@@ -55,17 +41,17 @@ extension StandingViewController {
     }
     
     
-    func updateTotalWatchTimeInMinutes(dayObjects: Results<Day>) {
+    func updateTotalWatchTimeInSeconds(dayObjects: Results<Day>) {
         if dayObjects.count <= 1 {
             return
         }
         else {
             for i in 0 ..< dayObjects.count - 1 {
                 let dayObject = dayObjects[i]
-                if dayObject.totalTimeInMinutes == 0 {
-                    let totalMinutes = calculateTotalWatchTimeInMinutes(dayObject: dayObject)
+                if dayObject.totalTimeInSeconds == 0 {
+                    let totalSeconds = calculateTotalWatchTimeInSeconds(dayObject: dayObject)
                     try! realm.write {
-                        dayObject.totalTimeInMinutes = totalMinutes
+                        dayObject.totalTimeInSeconds = totalSeconds
                     }
                 }
             }
@@ -73,7 +59,7 @@ extension StandingViewController {
     }
     
     
-    func calculateTotalWatchTimeInMinutes(dayObject: Day) -> Int {
+    func calculateTotalWatchTimeInSeconds(dayObject: Day) -> Int {
         var totalTimeInSeconds = 0
         let videos = dayObject.videosWatched
         for i in 0 ..< videos.count {
@@ -90,7 +76,7 @@ extension StandingViewController {
                 }
             }
         }
-        return Int(totalTimeInSeconds / 60)
+        return totalTimeInSeconds
     }
     
     
@@ -108,6 +94,7 @@ extension StandingViewController {
         var minutesDiff : Int
         var secondsDiff : Int
         
+        print(hourDiff)
         /* Minutes calculation */
         if new(startInt: startTime[hour], endInt: endTime[hour]) {
             hourDiff -= 1
@@ -116,6 +103,7 @@ extension StandingViewController {
         else {
             minutesDiff = endTime[minutes] - startTime[minutes]
         }
+        
         /* Seconds calculation */
         if new(startInt: startTime[minutes], endInt: endTime[minutes]) {
             minutesDiff -= 1
@@ -124,7 +112,6 @@ extension StandingViewController {
         else {
             secondsDiff = endTime[seconds] - startTime[seconds]
         }
-        
         totalSeconds = hourToSeconds(hour: hourDiff) + minutesToSeconds(minutes: minutesDiff) + secondsDiff
         return totalSeconds
     }
@@ -145,3 +132,5 @@ extension StandingViewController {
     }
     
 }
+
+

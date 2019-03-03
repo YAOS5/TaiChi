@@ -69,10 +69,10 @@ extension SelfPracticeViewController {
         else {
             for i in 0 ..< dayObjects.count - 1 {
                 let dayObject = dayObjects[i]
-                if dayObject.totalTimeInMinutes == 0 {
-                    let totalMinutes = calculateTotalWatchTimeInMinutes(dayObject: dayObject)
+                if dayObject.totalTimeInSeconds == 0 {
+                    let totalSeconds = calculateTotalWatchTimeInMinutes(dayObject: dayObject)
                     try! realm.write {
-                        dayObject.totalTimeInMinutes = totalMinutes
+                        dayObject.totalTimeInSeconds = totalSeconds
                     }
                 }
             }

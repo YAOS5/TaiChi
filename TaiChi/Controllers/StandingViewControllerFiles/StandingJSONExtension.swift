@@ -24,7 +24,7 @@ extension StandingViewController {
         var dayInfoArray = [Any]()
         
         let date = dayObject.date
-        let totalTimeInMinutes = dayObject.totalTimeInMinutes
+        let totalTimeInMinutes = dayObject.totalTimeInSeconds
         dayInfoArray.append(date)
         dayInfoArray.append(totalTimeInMinutes)
         

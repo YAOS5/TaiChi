@@ -25,7 +25,7 @@ extension SittingViewController {
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
             /* Check everyday besides today, to see if their totalTime is calculated */
-            updateTotalWatchTimeInMinutes(dayObjects: dayObjects)
+            updateTotalWatchTimeInSeconds(dayObjects: dayObjects)
         }
         else {
             /* Then we can use the existing dateObject */
@@ -41,17 +41,17 @@ extension SittingViewController {
     }
     
     
-    func updateTotalWatchTimeInMinutes(dayObjects: Results<Day>) {
+    func updateTotalWatchTimeInSeconds(dayObjects: Results<Day>) {
         if dayObjects.count <= 1 {
             return
         }
         else {
             for i in 0 ..< dayObjects.count - 1 {
                 let dayObject = dayObjects[i]
-                if dayObject.totalTimeInMinutes == 0 {
-                    let totalMinutes = calculateTotalWatchTimeInMinutes(dayObject: dayObject)
+                if dayObject.totalTimeInSeconds == 0 {
+                    let totalSeconds = calculateTotalWatchTimeInSeconds(dayObject: dayObject)
                     try! realm.write {
-                        dayObject.totalTimeInMinutes = totalMinutes
+                        dayObject.totalTimeInSeconds = totalSeconds
                     }
                 }
             }
@@ -59,7 +59,7 @@ extension SittingViewController {
     }
     
     
-    func calculateTotalWatchTimeInMinutes(dayObject: Day) -> Int {
+    func calculateTotalWatchTimeInSeconds(dayObject: Day) -> Int {
         var totalTimeInSeconds = 0
         let videos = dayObject.videosWatched
         for i in 0 ..< videos.count {
@@ -76,7 +76,7 @@ extension SittingViewController {
                 }
             }
         }
-        return Int(totalTimeInSeconds / 60)
+        return totalTimeInSeconds
     }
     
     

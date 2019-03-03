@@ -30,7 +30,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if !isFirstTimeLogin() {
             /* Autofill the two text fields if the user has logged in before */
             let loginObject = realm.objects(Login.self).first!
-            name.text = loginObject.Name
+            name.text = loginObject.name
             ID.text = loginObject.ID
         }
     }

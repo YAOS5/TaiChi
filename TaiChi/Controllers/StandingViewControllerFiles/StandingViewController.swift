@@ -29,7 +29,7 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let imageArray : [String] = ["m0", "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9"]
     let titleArray : [String] = ["完整演示", "概述", "第一式 野马分鬃", "第二式 搂膝拗步", "第三式 倒卷肱", "第四式 开合式", "第五式 单鞭", "第六式 云手", "第七式 揽雀尾", "第八式 十字手"]
     
     
@@ -42,12 +42,12 @@ class StandingViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return imageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-        cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
+        cell.videoImageView.image = UIImage(named: imageArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
         /* loading progress */
         let progress : Int = readProgress(videoCode: "m\(indexPath.row)")

@@ -10,6 +10,6 @@ import Foundation
 import RealmSwift
 
 class Login: Object {
-    @objc dynamic var Name: String = ""
+    @objc dynamic var name: String = ""
     @objc dynamic var ID: String = ""
 }

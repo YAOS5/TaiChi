@@ -11,6 +11,6 @@ import RealmSwift
 
 class Day: Object {
     @objc dynamic var date : String = "2001-01-01"
-    @objc dynamic var totalTimeInMinutes : Int = 0
+    @objc dynamic var totalTimeInSeconds : Int = 0
     var videosWatched = List<Video>()
 }

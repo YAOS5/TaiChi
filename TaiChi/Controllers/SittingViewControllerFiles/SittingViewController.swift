@@ -28,7 +28,7 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    let testArray : [String] = ["square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg", "square.jpg"]
+    let imageArray : [String] = ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"]
     let titleArray : [String] = ["完整演示", "概述", "第一式 升降式", "第二式 云手", "第三式 开合式", "第四式 野马分鬃", "第五式 白鹤亮翅", "第六式 搂膝拗步", "第七式 倒卷肱", "第八式 收势"]
     
     
@@ -41,12 +41,12 @@ class SittingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return imageArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoTableViewCell", for: indexPath) as! VideoTableViewCell
-        cell.videoImageView.image = UIImage(named: testArray[indexPath.row])
+        cell.videoImageView.image = UIImage(named: imageArray[indexPath.row])
         cell.videoLabel.text = titleArray[indexPath.row]
         
         // loading progress

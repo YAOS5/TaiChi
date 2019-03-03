@@ -24,7 +24,7 @@ extension LoginViewController {
     
     func createLoginObjectFromTextFields() -> Login {
         let loginObject = Login()
-        loginObject.Name = name.text!
+        loginObject.name = name.text!
         loginObject.ID = ID.text!
         
         return loginObject
