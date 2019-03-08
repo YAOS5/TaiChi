@@ -28,6 +28,11 @@
 		490C2690222BA40E002E18E2 /* m0.png in Resources */ = {isa = PBXBuildFile; fileRef = 490C2686222BA40E002E18E2 /* m0.png */; };
 		490C2691222BA40E002E18E2 /* m9.png in Resources */ = {isa = PBXBuildFile; fileRef = 490C2687222BA40E002E18E2 /* m9.png */; };
 		490C2692222BA40E002E18E2 /* m4.png in Resources */ = {isa = PBXBuildFile; fileRef = 490C2688222BA40E002E18E2 /* m4.png */; };
+		490C26A5222F8605002E18E2 /* StandingNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C26A4222F8605002E18E2 /* StandingNetworkingExtension.swift */; };
+		490C26A7222F8617002E18E2 /* SittingNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C26A6222F8617002E18E2 /* SittingNetworkingExtension.swift */; };
+		490C26A9222F8641002E18E2 /* SelfPracticeJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C26A8222F8641002E18E2 /* SelfPracticeJSONExtension.swift */; };
+		490C26AB222F8652002E18E2 /* SelfPracticeNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C26AA222F8652002E18E2 /* SelfPracticeNetworkingExtension.swift */; };
+		490C26AD222F8D47002E18E2 /* LoginVCNetworkingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C26AC222F8D47002E18E2 /* LoginVCNetworkingExtension.swift */; };
 		4912372522014BCC00001D97 /* SittingPlayVideoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372422014BCC00001D97 /* SittingPlayVideoExtension.swift */; };
 		4912372722014CF800001D97 /* SittingVideoDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372622014CF700001D97 /* SittingVideoDataExtension.swift */; };
 		4912372922014D4400001D97 /* StandingPlayVideoExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4912372822014D4400001D97 /* StandingPlayVideoExtension.swift */; };
@@ -104,6 +109,11 @@
 		490C2686222BA40E002E18E2 /* m0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m0.png; sourceTree = "<group>"; };
 		490C2687222BA40E002E18E2 /* m9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m9.png; sourceTree = "<group>"; };
 		490C2688222BA40E002E18E2 /* m4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m4.png; sourceTree = "<group>"; };
+		490C26A4222F8605002E18E2 /* StandingNetworkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingNetworkingExtension.swift; sourceTree = "<group>"; };
+		490C26A6222F8617002E18E2 /* SittingNetworkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SittingNetworkingExtension.swift; sourceTree = "<group>"; };
+		490C26A8222F8641002E18E2 /* SelfPracticeJSONExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPracticeJSONExtension.swift; sourceTree = "<group>"; };
+		490C26AA222F8652002E18E2 /* SelfPracticeNetworkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfPracticeNetworkingExtension.swift; sourceTree = "<group>"; };
+		490C26AC222F8D47002E18E2 /* LoginVCNetworkingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCNetworkingExtension.swift; sourceTree = "<group>"; };
 		4912372422014BCC00001D97 /* SittingPlayVideoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SittingPlayVideoExtension.swift; sourceTree = "<group>"; };
 		4912372622014CF700001D97 /* SittingVideoDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SittingVideoDataExtension.swift; sourceTree = "<group>"; };
 		4912372822014D4400001D97 /* StandingPlayVideoExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingPlayVideoExtension.swift; sourceTree = "<group>"; };
@@ -208,6 +218,16 @@
 			path = "Standing Thumbnails";
 			sourceTree = "<group>";
 		};
+		490C26AE222F8D52002E18E2 /* LoginViewControllerFiles */ = {
+			isa = PBXGroup;
+			children = (
+				49F33AF121E86F4300F93F34 /* LoginViewController.swift */,
+				49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */,
+				490C26AC222F8D47002E18E2 /* LoginVCNetworkingExtension.swift */,
+			);
+			path = LoginViewControllerFiles;
+			sourceTree = "<group>";
+		};
 		4912372C22014DB000001D97 /* SittingViewControllerFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +236,7 @@
 				4912372622014CF700001D97 /* SittingVideoDataExtension.swift */,
 				49F0D9D7220285A900B4BF0F /* SittingDateExtension.swift */,
 				49709B3722096875003DD139 /* SittingJSONExtension.swift */,
+				490C26A6222F8617002E18E2 /* SittingNetworkingExtension.swift */,
 			);
 			path = SittingViewControllerFiles;
 			sourceTree = "<group>";
@@ -228,6 +249,7 @@
 				4912372A22014DA100001D97 /* StandingVideoDataExtension.swift */,
 				49F0D9D9220285B600B4BF0F /* StandingDateExtension.swift */,
 				49709B3922096889003DD139 /* StandingJSONExtension.swift */,
+				490C26A4222F8605002E18E2 /* StandingNetworkingExtension.swift */,
 			);
 			path = StandingViewControllerFiles;
 			sourceTree = "<group>";
@@ -296,6 +318,8 @@
 			children = (
 				498F9785222508080069A353 /* SelfPracticeViewController.swift */,
 				498F9787222610660069A353 /* SelfPracticeDataExtension.swift */,
+				490C26A8222F8641002E18E2 /* SelfPracticeJSONExtension.swift */,
+				490C26AA222F8652002E18E2 /* SelfPracticeNetworkingExtension.swift */,
 			);
 			path = SelfPracticeViewControllerFiles;
 			sourceTree = "<group>";
@@ -357,9 +381,8 @@
 		49F33B0421E874C500F93F34 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				49F33AF121E86F4300F93F34 /* LoginViewController.swift */,
-				49D92CDC2218D22D0086295D /* LoginVCPasswordExtension.swift */,
 				49F33B0221E874AF00F93F34 /* SelectionViewController.swift */,
+				490C26AE222F8D52002E18E2 /* LoginViewControllerFiles */,
 				498F97892226106F0069A353 /* SelfPracticeViewControllerFiles */,
 				4912372C22014DB000001D97 /* SittingViewControllerFiles */,
 				4912372D22014DC800001D97 /* StandingViewControllerFiles */,
@@ -505,6 +528,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TaiChi/Pods-TaiChi-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFDateHelper/AFDateHelper.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -513,6 +537,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFDateHelper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -552,6 +577,7 @@
 				49F33AF221E86F4300F93F34 /* LoginViewController.swift in Sources */,
 				4912372922014D4400001D97 /* StandingPlayVideoExtension.swift in Sources */,
 				4912372B22014DA100001D97 /* StandingVideoDataExtension.swift in Sources */,
+				490C26A5222F8605002E18E2 /* StandingNetworkingExtension.swift in Sources */,
 				49F33B0321E874AF00F93F34 /* SelectionViewController.swift in Sources */,
 				49F33AF021E86F4300F93F34 /* AppDelegate.swift in Sources */,
 				498F9788222610670069A353 /* SelfPracticeDataExtension.swift in Sources */,
@@ -567,12 +593,16 @@
 				49696E0F21EF599600B23804 /* Video.swift in Sources */,
 				49F0D9D8220285A900B4BF0F /* SittingDateExtension.swift in Sources */,
 				49EB505F21FD8B0F008EB865 /* Progress.swift in Sources */,
+				490C26A7222F8617002E18E2 /* SittingNetworkingExtension.swift in Sources */,
 				495F2E62220BE9A700D56049 /* roundCornerExtension.swift in Sources */,
+				490C26AB222F8652002E18E2 /* SelfPracticeNetworkingExtension.swift in Sources */,
 				49D92CDB2218D1600086295D /* Login.swift in Sources */,
 				49709B3E220B2218003DD139 /* textFieldIcon.swift in Sources */,
 				49544E5121E87CD400092CE7 /* SittingViewController.swift in Sources */,
 				49696E1121EF59C400B23804 /* Day.swift in Sources */,
+				490C26AD222F8D47002E18E2 /* LoginVCNetworkingExtension.swift in Sources */,
 				49544E5821E880EA00092CE7 /* VideoTableViewCell.swift in Sources */,
+				490C26A9222F8641002E18E2 /* SelfPracticeJSONExtension.swift in Sources */,
 				495F2E64220C728300D56049 /* buttonShadowExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

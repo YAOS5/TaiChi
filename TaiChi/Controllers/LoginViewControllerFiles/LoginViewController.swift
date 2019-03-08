@@ -37,13 +37,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     /* Controlling the appearence of the navigational controller */
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
+//    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.isNavigationBarHidden = true
+//    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        self.navigationController?.isNavigationBarHidden = false
+//    }
+//    
     
     /* Configuring the login text fields */
     @IBOutlet weak var name: UITextField! {
@@ -62,22 +62,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func loginButton(_ sender: UIButton) {
-        if checkCredentialsWithCloudDB() {
-            if isFirstTimeLogin() {
-                /* If the user is also logging in for the first time,
-                 store the name and ID locally too */
-                let loginObject = createLoginObjectFromTextFields()
-                try! realm.write {
-                    realm.add(loginObject)
-                }
-            }
-            performSegue(withIdentifier: "toSelection", sender: self)
-        }
-        else {
-            //TODO: Have a pop up prompting for wrong password
-            errorLabel.isHidden = false
-            print("credentials error")
-        }
+        checkCredentialsWithCloudDB(Name: name.text, ID: ID.text)
     }
     
     

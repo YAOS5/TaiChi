@@ -16,16 +16,11 @@ extension LoginViewController {
     }
     
     
-    func checkCredentialsWithCloudDB() -> Bool {
-        //TODO: Modify this ethod after networking bit is done
-        return true
-    }
-    
-    
-    func createLoginObjectFromTextFields() -> Login {
+    func createLoginObjectFromTextFields(LoginId: String) -> Login {
         let loginObject = Login()
         loginObject.name = name.text!
         loginObject.ID = ID.text!
+        loginObject.LoginId = LoginId
         
         return loginObject
     }
