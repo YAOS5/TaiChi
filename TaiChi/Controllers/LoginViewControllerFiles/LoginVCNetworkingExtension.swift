@@ -29,21 +29,27 @@ extension LoginViewController {
                 
                 /* Extracting the JSON */
                 let responseJSON : JSON = JSON(response.result.value!)
-                /* Now we need to check if it is correct */
-                if responseJSON["isTrue"].string == "true" {
-                    if self.isFirstTimeLogin() {
-                        /* If the user is also logging in for the first time,
-                         store the name and ID locally too */
-                        let loginObject = self.createLoginObjectFromTextFields(LoginId: responseJSON["LoginId"].string!)
-                        try! self.realm.write {
-                            self.realm.add(loginObject)
-                        }
-                    }
-                    self.performSegue(withIdentifier: "toSelection", sender: self)
+                self.processLoginData(responseJSON: responseJSON)
+        }
+    }
+    
+    
+    func processLoginData(responseJSON: JSON) {
+//        print(responseJSON["isTrue"].string)
+//        print(responseJSON["isTrue"].string == "true")
+        if responseJSON["LoginId"] != "" {
+            if self.isFirstTimeLogin() {
+                /* If the user is also logging in for the first time,
+                 store the name and ID locally too */
+                let loginObject = self.createLoginObjectFromTextFields(LoginId: responseJSON["LoginId"].string!)
+                try! self.realm.write {
+                    self.realm.add(loginObject)
                 }
-                else {
-                    self.errorLabel.isHidden = false
-                }
+            }
+            self.performSegue(withIdentifier: "toSelection", sender: self)
+        }
+        else {
+            errorLabel.isHidden = false
         }
     }
 }

@@ -12,4 +12,5 @@ import RealmSwift
 class Login: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var ID: String = ""
+    @objc dynamic var LoginId: String = ""
 }
