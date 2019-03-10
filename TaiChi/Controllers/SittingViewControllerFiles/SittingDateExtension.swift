@@ -30,6 +30,7 @@ extension SittingViewController {
         else {
             /* Then we can use the existing dateObject */
             updateVideoDB(dayObject: dayObject!, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
+            constructJSONFromDay(dayObject: dayObject!)
         }
     }
     

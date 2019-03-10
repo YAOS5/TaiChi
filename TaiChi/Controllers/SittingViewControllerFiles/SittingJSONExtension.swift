@@ -9,67 +9,91 @@
 import Foundation
 import SwiftyJSON
 import RealmSwift
+import AFDateHelper
 
 extension SittingViewController {
-    
-    
-    func createJSONObject(dayInfoArray: Array<Any>) -> JSON {
-        
-        let json = JSON(arrayLiteral: dayInfoArray)
-        print(json)
-        return json
+    func fetchingLoginId() -> String{
+        let loginObject = realm.objects(Login.self).first!
+        return loginObject.LoginId
     }
     
-    
-    func getDayInfo(dayObject: Day) -> Array<Any> {
-        var dayInfoArray = [Any]()
+    func constructJSONFromDay(dayObject: Day) -> Array<JSON>{
+        var VideoJSONArray = Array<JSON>()
+        let LoginId = fetchingLoginId()
+        print(LoginId)
+        let currentDate = dayObject.date
+        print(currentDate)
         
-        let date = dayObject.date
-        let totalTimeInMinutes = dayObject.totalTimeInSeconds
-        dayInfoArray.append(date)
-        dayInfoArray.append(totalTimeInMinutes)
-        
-        var videosInfoArray = [Array<Any>]()
+        /* Extracting relevant information from video objects */
         let videoObjects = dayObject.videosWatched
         for i in 0 ..< videoObjects.count {
-            videosInfoArray.append(getVideoInfo(videoObject: videoObjects[i]))
+            let WatchTimeJSONArray = createJSONFromVideo(LoginId: LoginId, currentDate: currentDate, videoObject: videoObjects[i])
+            print(WatchTimeJSONArray.count)
+            for i in 0 ..< WatchTimeJSONArray.count {
+                VideoJSONArray.append(WatchTimeJSONArray[i])
+            }
         }
-        
-        dayInfoArray.append(videosInfoArray)
-        return dayInfoArray
+        return VideoJSONArray
     }
     
     
-    func getVideoInfo(videoObject: Video) -> Array<Any> {
-        var videoInfoArray = [Any]()
+    func createJSONFromVideo(LoginId: String, currentDate: String, videoObject: Video) -> Array<JSON> {
+        var WatchTimeJSONArray = Array<JSON>()
         
-        let category = videoObject.category
-        let videoName = videoObject.videoName
-        videoInfoArray.append(category!)
-        videoInfoArray.append(videoName!)
-        
-        var playTimeArray = [Dictionary<String, Array<Int>>]()
         let playTimeObjects = videoObject.playTimeList
-        
         for i in 0 ..< playTimeObjects.count {
-            let playTimeDict = getPlayTimeInfo(playTime: playTimeObjects[i])
-            playTimeArray.append(playTimeDict)
+            var JSONDict = Dictionary<String,String>()
+            let playTimeArray = convertTimeToString(currentDate: currentDate, playTime: playTimeObjects[i])
+            let StartTime = playTimeArray[0]
+            let EndTime = playTimeArray[1]
+            
+            JSONDict["LoginId"] = LoginId
+            JSONDict["VideoCategory"] = videoObject.category!
+            JSONDict["VideoName"] = videoObject.videoName!
+            JSONDict["CurrentDate"] = currentDate
+            JSONDict["StartTime"] = StartTime
+            JSONDict["EndTime"] = EndTime
+            
+            WatchTimeJSONArray.append(JSON(JSONDict))
+            print(JSON(JSONDict))
+        }
+        return WatchTimeJSONArray
+    }
+    
+    
+    func convertTimeToString(currentDate: String, playTime: PlayTime) -> Array<String> {
+        var playTimeArray = Array<String>()
+        let startStringArray = createStringArray(intList: playTime.startTime)
+        var endStringArray = createStringArray(intList: playTime.endTime)
+        
+        /* In case that endStringArray is empty */
+        if endStringArray.count == 0 {
+            endStringArray = startStringArray
         }
         
-        videoInfoArray.append(contentsOf: playTimeArray)
-        return videoInfoArray
-    }
-    
-    
-    func getPlayTimeInfo(playTime: PlayTime) -> Dictionary<String, Array<Int>> {
-        /* Returns an dictionary which stores string keys and List-of-Int values */
-        var playTimeDict = [String: Array<Int>]()
-
-        let startTime = Array(playTime.startTime)
-        let endTime = Array(playTime.endTime)
-        playTimeDict["startTime"] = startTime
-        playTimeDict["endTime"] = endTime
+        let StartTime = currentDate + " \(startStringArray[0]):\(startStringArray[1]):\(startStringArray[2])"
+        let EndTime = currentDate + " \(endStringArray[0]):\(endStringArray[1]):\(endStringArray[2])"
         
-        return playTimeDict
+        playTimeArray.append(StartTime)
+        playTimeArray.append(EndTime)
+        
+        print(StartTime)
+        print(EndTime)
+        return playTimeArray
     }
+    
+    
+    func createStringArray(intList: List<Int>) -> Array<String> {
+        var stringArray = Array<String>()
+        for i in 0 ..< intList.count {
+            if intList[i] <= 9 {
+                stringArray.append("0\(intList[i])")
+            }
+            else {
+                stringArray.append("\(intList[i])")
+            }
+        }
+        return stringArray
+    }
+    
 }
