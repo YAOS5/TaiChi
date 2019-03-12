@@ -11,10 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 extension LoginViewController {
-    func checkCredentialsWithCloudDB(Name: String?, ID: String?) {
+    func checkCredentialsWithCloudDB(Name: String, ID: String) {
         /* If nothing is returned, display error label and terminate the function */
         if (Name == "") || (ID == "") {
-            errorLabel.isHidden = false
+            displayErrorLabel(text: "姓名或病案号错误")
             return
         }
         
@@ -26,21 +26,28 @@ extension LoginViewController {
         AF.request(loginURL, method: .post, parameters: Parameters, encoding: URLEncoding.httpBody,
                    headers: ["Content-Type": "application/x-www-form-urlencoded"]).responseJSON
             { response in
-                
-                /* Extracting the JSON */
-                let responseJSON : JSON = JSON(response.result.value!)
-                self.processLoginData(responseJSON: responseJSON)
+                if response.error != nil {
+                    self.displayErrorLabel(text: "请检查网络连接")
+                }
+                else {
+                    /* Extracting the JSON */
+                    let responseJSON : JSON = JSON(response.result.value!)
+                    if responseJSON["LoginId"] != "" {
+                        self.displayErrorLabel(text: "登陆中")
+                        self.processLoginData(responseJSON: responseJSON)
+                    }
+                    else {
+                        self.displayErrorLabel(text: "姓名或病案号错误")
+                    }
+                }
         }
     }
     
     
     func processLoginData(responseJSON: JSON) {
-//        print(responseJSON["isTrue"].string)
-//        print(responseJSON["isTrue"].string == "true")
         if responseJSON["LoginId"] != "" {
             if self.isFirstTimeLogin() {
-                /* If the user is also logging in for the first time,
-                 store the name and ID locally too */
+                /* If the user is also logging in for the first time, store the name and ID locally too */
                 let loginObject = self.createLoginObjectFromTextFields(LoginId: responseJSON["LoginId"].string!)
                 try! self.realm.write {
                     self.realm.add(loginObject)

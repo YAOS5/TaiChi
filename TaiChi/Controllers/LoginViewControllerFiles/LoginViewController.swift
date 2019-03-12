@@ -37,13 +37,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     /* Controlling the appearence of the navigational controller */
-//    override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.isNavigationBarHidden = true
-//    }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.isNavigationBarHidden = false
-//    }
-//    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     
     /* Configuring the login text fields */
     @IBOutlet weak var name: UITextField! {
@@ -62,7 +62,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func loginButton(_ sender: UIButton) {
-        checkCredentialsWithCloudDB(Name: name.text, ID: ID.text)
+        if isFirstTimeLogin() {
+            checkCredentialsWithCloudDB(Name: name.text!, ID: ID.text!)
+        }
+        else {
+            if checkCredentialsWithRealm(name: name.text!, ID: ID.text!) {
+                performSegue(withIdentifier: "toSelection", sender: self)
+            }
+            else {
+                displayErrorLabel(text: "姓名或病案号错误")
+            }
+        }
+        
     }
     
     
@@ -77,6 +88,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         errorLabel.layer.masksToBounds = true
         errorLabel.layer.cornerRadius = 10
         errorLabel.isHidden = true
+    }
+    
+    
+    func displayErrorLabel(text: String) {
+        self.errorLabel.text = text
+        self.errorLabel.isHidden = false
     }
 
 }

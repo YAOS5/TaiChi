@@ -25,4 +25,10 @@ extension LoginViewController {
         return loginObject
     }
     
+    
+    func checkCredentialsWithRealm(name: String, ID: String) -> Bool {
+        let loginObject = realm.objects(Login.self).first!
+        return (loginObject.name == name) && (loginObject.ID == ID)
+    }
+    
 }
