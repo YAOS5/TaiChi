@@ -1,5 +1,5 @@
 //
-//  StandingDateExtension.swift
+//  SittingDateExtension.swift
 //  TaiChi
 //
 //  Created by Peteski Shi on 31/1/19.
@@ -18,14 +18,15 @@ extension StandingViewController {
         let dayObjects = realm.objects(Day.self)
         let dayObject = dayObjects.last
         if (dayObject == nil) || (dayObject?.date != currentDate.toString(format: .isoDate)) {
+            /* Check everyday besides today, to see if their totalTime is calculated and if the data has been passed to the cloud DB*/
+            updateCloudDatabaseAndLocalWatchTime(dayObjects: dayObjects)
+            
             /* Creating and adding the new day object to the database */
             let newDayObject = createNewDay(currentDate: currentDate)
             try! realm.write {
                 realm.add(newDayObject)
             }
             updateVideoDB(dayObject: newDayObject, category: category, videoName: videoName, startTime: startTime, endTime: endTime)
-            /* Check everyday besides today, to see if their totalTime is calculated */
-            updateTotalWatchTimeInSeconds(dayObjects: dayObjects)
         }
         else {
             /* Then we can use the existing dateObject */
@@ -41,21 +42,20 @@ extension StandingViewController {
     }
     
     
-    func updateTotalWatchTimeInSeconds(dayObjects: Results<Day>) {
-        if dayObjects.count <= 1 {
-            return
-        }
-        else {
-            for i in 0 ..< dayObjects.count - 1 {
-                let dayObject = dayObjects[i]
-                if dayObject.totalTimeInSeconds == 0 {
-                    let totalSeconds = calculateTotalWatchTimeInSeconds(dayObject: dayObject)
-                    try! realm.write {
-                        dayObject.totalTimeInSeconds = totalSeconds
-                    }
+    func updateCloudDatabaseAndLocalWatchTime(dayObjects: Results<Day>) {
+        for i in 0 ..< dayObjects.count {
+            let dayObject = dayObjects[i]
+            if dayObject.totalTimeInSeconds == 0 {
+                let totalSeconds = calculateTotalWatchTimeInSeconds(dayObject: dayObject)
+                try! realm.write {
+                    dayObject.totalTimeInSeconds = totalSeconds
                 }
+                let watchTimeDictArray = constructStringDictFromDay(dayObject: dayObject)
+                sendWatchDataToCloudDB(watchTimeDictArray: watchTimeDictArray)
+                
             }
         }
+        return
     }
     
     

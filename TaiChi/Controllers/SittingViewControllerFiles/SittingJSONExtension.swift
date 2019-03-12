@@ -17,47 +17,43 @@ extension SittingViewController {
         return loginObject.LoginId
     }
     
-    func constructJSONFromDay(dayObject: Day) -> Array<JSON>{
-        var VideoJSONArray = Array<JSON>()
+    func constructStringDictFromDay(dayObject: Day) -> Array<Dictionary<String, String>>{
+        var watchTimeDictArray = Array<Dictionary<String, String>>()
         let LoginId = fetchingLoginId()
-        print(LoginId)
         let currentDate = dayObject.date
-        print(currentDate)
-        
+
         /* Extracting relevant information from video objects */
         let videoObjects = dayObject.videosWatched
         for i in 0 ..< videoObjects.count {
-            let WatchTimeJSONArray = createJSONFromVideo(LoginId: LoginId, currentDate: currentDate, videoObject: videoObjects[i])
-            print(WatchTimeJSONArray.count)
-            for i in 0 ..< WatchTimeJSONArray.count {
-                VideoJSONArray.append(WatchTimeJSONArray[i])
+            let WatchTimeDictArray = createStringDictFromVideo(LoginId: LoginId, currentDate: currentDate, videoObject: videoObjects[i])
+            for i in 0 ..< WatchTimeDictArray.count {
+                watchTimeDictArray.append(WatchTimeDictArray[i])
             }
         }
-        return VideoJSONArray
+        return watchTimeDictArray
     }
     
     
-    func createJSONFromVideo(LoginId: String, currentDate: String, videoObject: Video) -> Array<JSON> {
-        var WatchTimeJSONArray = Array<JSON>()
+    func createStringDictFromVideo(LoginId: String, currentDate: String, videoObject: Video) -> Array<Dictionary<String, String>>{
+        var WatchTimeStringArray =  Array<Dictionary<String, String>>()
         
         let playTimeObjects = videoObject.playTimeList
         for i in 0 ..< playTimeObjects.count {
-            var JSONDict = Dictionary<String,String>()
+            var StringDict = Dictionary<String,String>()
             let playTimeArray = convertTimeToString(currentDate: currentDate, playTime: playTimeObjects[i])
             let StartTime = playTimeArray[0]
             let EndTime = playTimeArray[1]
             
-            JSONDict["LoginId"] = LoginId
-            JSONDict["VideoCategory"] = videoObject.category!
-            JSONDict["VideoName"] = videoObject.videoName!
-            JSONDict["CurrentDate"] = currentDate
-            JSONDict["StartTime"] = StartTime
-            JSONDict["EndTime"] = EndTime
+            StringDict["LoginId"] = LoginId
+            StringDict["VideoCategory"] = videoObject.category!
+            StringDict["VideoName"] = videoObject.videoName!
+            StringDict["CurrentData"] = currentDate
+            StringDict["StartTime"] = StartTime
+            StringDict["EndTime"] = EndTime
             
-            WatchTimeJSONArray.append(JSON(JSONDict))
-            print(JSON(JSONDict))
+            WatchTimeStringArray.append(StringDict)
         }
-        return WatchTimeJSONArray
+        return WatchTimeStringArray
     }
     
     
@@ -77,8 +73,6 @@ extension SittingViewController {
         playTimeArray.append(StartTime)
         playTimeArray.append(EndTime)
         
-        print(StartTime)
-        print(EndTime)
         return playTimeArray
     }
     
